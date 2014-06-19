@@ -1,0 +1,21 @@
+# Ignore lyx backups
+*.lyx~
+*.lyx#
+# Ignore MATLAB saves
+*.asv
+# Ignore python compiles
+*.pyc
+# Ignore pdf documents
+*.pdf
+# Ignore vim backups
+*.swp
+# Ignore Jaxodraw temporary files
+Jaxo_tmp.tex
+# Ignore log files
+*.log
+# Ignore MS Word backup/lock files
+~$*.docx
+# Ignore LaTeX auxiliary files
+*.aux
+*.synctex.gz
+
