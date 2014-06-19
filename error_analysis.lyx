@@ -110,6 +110,10 @@ Accuracy vs precision
 \end_layout
 
 \begin_layout Itemize
+Absolute and relative errors
+\end_layout
+
+\begin_layout Itemize
 Quoting measurements with errors
 \end_layout
 
@@ -122,7 +126,7 @@ Estimating errors from regression fits by eye
 \end_layout
 
 \begin_layout Itemize
-Linear error propagation
+Linear error propagation and interval math
 \end_layout
 
 \end_deeper
@@ -176,6 +180,313 @@ Non-linear propagation and Monte Carlo
 \end_layout
 
 \end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+These are pedagogical error analysis notes written for 1st/2nd year physics
+ undergraduate students as a response to feedback from students that there
+ was not sufficient coverage of these ideas in their coursework.
+ The notes contain Basic materials, roughly commensurate with what a typical
+ undergraduate physics major requires (basic concepts, error estimation
+ in measurement and from graphs, and linear error propagation), and Advanced
+ Topics for keen students wishing to learn about probability theory, the
+ two major schools of statistics (Bayesian and frequentist) and Monte Carlo
+ techniques for non-linear error propagation.
+ A list of materials for further reading is also provided.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+We all know that there are good and bad experiments.
+ The latter accumulate in vain.
+ Whether there are a hundred or a thousand, one single piece of work by
+ a real master - by a Pasteur, for example - will be sufficient to sweep
+ them into oblivion.
+\end_layout
+
+\begin_layout Quotation
+Henri Poincaré (1904, p.
+ 141)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Found in Jaynes, Probability Theory, sec.
+ 8.9, kindle loc 8800
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sometimes an entire field can develop bad habits which have become so ingrained
+ that you just have to learn to live with them.
+ In physics one of our bad habits is the use of the word 
+\begin_inset Quotes eld
+\end_inset
+
+error,
+\begin_inset Quotes erd
+\end_inset
+
+ as in 
+\begin_inset Quotes eld
+\end_inset
+
+error analysis.
+\begin_inset Quotes erd
+\end_inset
+
+ Our students would be greatly helped if we just used the common English
+ word that actually means what we have in mind: uncertainty.
+ Get this straight: 
+\begin_inset Quotes eld
+\end_inset
+
+error
+\begin_inset Quotes erd
+\end_inset
+
+ as used in 
+\begin_inset Quotes eld
+\end_inset
+
+error analysis
+\begin_inset Quotes erd
+\end_inset
+
+ means 
+\emph on
+uncertainty
+\emph default
+, or 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+plausible magnitude of possible errors 
+\emph default
+(in the ordinary sense)
+\emph on
+ in a measured quantity
+\emph default
+.
+\begin_inset Quotes erd
+\end_inset
+
+ For the rest of these notes I will use the term 
+\begin_inset Quotes eld
+\end_inset
+
+error
+\begin_inset Quotes erd
+\end_inset
+
+ synonymously with uncertainty, as is standard in the physics literature.
+\end_layout
+
+\begin_layout Standard
+Physics is a quantitative science which seeks to establish predictive relationsh
+ips between quantities which can somehow be numerically measured in the
+ real world.
+ But our senses are easily fooled, and our instruments are
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Not always!
+\end_layout
+
+\end_inset
+
+ reliable in proportion with their cost.
+ When you open up a physics or mathematics textbook you'll often find problems
+ where all the relevant data is given to you without any uncertainty, and
+ often with a suspicious number of digits (
+\begin_inset Quotes eld
+\end_inset
+
+A car of mass 
+\begin_inset Formula $m=1.24\times10^{3}\ \mathrm{kg}$
+\end_inset
+
+ is travelling at 
+\begin_inset Formula $v=2.778\times10^{1}\ \mathrm{m/s}$
+\end_inset
+
+ when the driver hits the brakes, locking them.
+ The coefficient of kinetic friction is 
+\begin_inset Formula $\mu=0.1608$
+\end_inset
+
+.
+ Find the stopping distance and time.
+ You can assume standard Earth gravity.
+ Ignore air drag.
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Reality is seldom so kind.
+ We often must make decisions with imperfect and/or incomplete information.
+ To make any progress we must find ways of analysing data and making predictions
+ that are compatible with the 
+\begin_inset Quotes eld
+\end_inset
+
+fuzziness
+\begin_inset Quotes erd
+\end_inset
+
+ of real data.
+\end_layout
+
+\begin_layout Standard
+One of the major benefits to be had from a physics education for people
+ who do not go into a physics research career is an appreciation of how
+ to estimate, reason with, and live with uncertainty.
+ It is really a more self-aware and robust version of ordinary common sense
+ \SpecialChar \nobreakdash-
+ a training of sceptical and critical thinking skills that are useful in
+ any walk of life.
+ Unfortunately this important aspect of physics education can often go 
+\begin_inset Quotes eld
+\end_inset
+
+under the radar,
+\begin_inset Quotes erd
+\end_inset
+
+ without systematic development.
+ Lectures are focused on theory, tutorials are focused on homework style
+ problems, and in the interest of time and student safety the laboratories
+ are often 
+\begin_inset Quotes eld
+\end_inset
+
+button pushing,
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+checklist ticking
+\begin_inset Quotes erd
+\end_inset
+
+ endeavours which allow little of the creative problem solving and experimentati
+on that can make physics laboratories truly great.
+ They also afford little time for honing error analysis skills.
+\end_layout
+
+\begin_layout Standard
+These notes hopefully go some way toward filling the gap.
+ These notes are structured in two major sections apart from this introduction.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Basics"
+
+\end_inset
+
+ addresses the basic topics that you are most likely to need in your course.
+ Master this material and you should have no trouble at all on the error
+ analysis sections of your lab reports.
+ Fortunately the mathematics involved is not really difficult - the most
+ advanced thing you'll need is to be able to find the linear approximation
+ to a function of several variables at a given point (i.e., partial derivatives).
+ In practice, with the rules of thumb you'll find here, the cases where
+ you actually have to do this calculation are rare.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+ covers 
+\begin_inset Quotes eld
+\end_inset
+
+Advanced Topics.
+\begin_inset Quotes erd
+\end_inset
+
+ These are optional extras for the interested student.
+ These start with a review of probability theory, which by Cox's theorem
+ is the unique extension of ordinary (
+\begin_inset Quotes eld
+\end_inset
+
+Aristotlean
+\begin_inset Quotes erd
+\end_inset
+
+) logic to handle uncertain propositions.
+ From there we discuss the two schools of statistics (the 
+\emph on
+Bayesians
+\emph default
+, who were the first and are now staging a major comeback, and the 
+\emph on
+frequentists
+\emph default
+, who dominated the statistics of the 20th century) and their different
+ approaches to uncertainty, parameter estimation and hypothesis testing.
+ Finally we discuss Monte Carlo techniques and their use in propagating
+ non-linear uncertainties.
+ The basic idea is to simulate error-prone measurements many times with
+ a computer's random number generator and look at the distribution of results
+ obtained for the calculation(s) of interest.
+ A bibliography containing further reading material is provided for students
+ who want to explore further.
+ Happy trails!
+\end_layout
+
+\begin_layout Section
+Basics
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Basics"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Advanced Topics
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Advanced-Topics"
+
 \end_inset
 
 
