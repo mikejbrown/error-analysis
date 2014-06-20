@@ -51,7 +51,7 @@ figs-within-sections
 \use_esint 1
 \use_mhchem 1
 \use_mathdots 1
-\cite_engine natbib_numerical
+\cite_engine basic
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -86,7 +86,7 @@ Error Analysis
 \begin_inset Note Note
 status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 This is a draft of pedagogical error analysis notes written for 1st/2nd
  year physics students as a response to complaints from students that there
  was not sufficient coverage of these ideas in their coursework.
@@ -195,7 +195,15 @@ These are pedagogical error analysis notes written for 1st/2nd year physics
  Topics for keen students wishing to learn about probability theory, the
  two major schools of statistics (Bayesian and frequentist) and Monte Carlo
  techniques for non-linear error propagation.
- A list of materials for further reading is also provided.
+ A list of materials for further reading and a summary 
+\begin_inset Quotes eld
+\end_inset
+
+cheat sheet
+\begin_inset Quotes erd
+\end_inset
+
+ are also provided at the end.
 \end_layout
 
 \begin_layout Standard
@@ -219,6 +227,8 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Quotation
+
+\emph on
 We all know that there are good and bad experiments.
  The latter accumulate in vain.
  Whether there are a hundred or a thousand, one single piece of work by
@@ -227,7 +237,7 @@ We all know that there are good and bad experiments.
 \end_layout
 
 \begin_layout Quotation
-Henri Poincaré (1904, p.
+- Henri Poincaré (1904, p.
  141)
 \begin_inset Note Note
 status open
@@ -481,11 +491,521 @@ name "sec:Basics"
 
 \end_layout
 
+\begin_layout Quotation
+
+\emph on
+A measurement without error bars is worthless.
+\end_layout
+
+\begin_layout Quotation
+- Every physicist everywhere
+\end_layout
+
+\begin_layout Standard
+Are errors really that important? In fact it is easy to imagine circumstances
+ where the error or uncertainty of a measurement or prediction is at least
+ as important as the central value itself.
+ For example, suppose you work for 
+\noun on
+NASA
+\noun default
+ and you have discovered a rather large asteroid on a potential collision
+ course with Earth.
+ What do you do? Is it the time to ring up the President and the Hollywood
+ action heroes? This dilemma crops up more often than you might think.
+ Near Earth asteroids are being discovered faster than ever before (Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nea-discovery-stats"
+
+\end_inset
+
+), and at the time of this writing there are 1484 space rocks in the 
+\begin_inset Quotes eld
+\end_inset
+
+potentially hazardous asteroid
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\noun on
+PHA
+\noun default
+) category 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PHAs"
+
+\end_inset
+
+.
+ Yet, at present, there is no major threat from impacts.
+ How is this so? Astronomical measurements are only so good, and the positions
+ and velocities of these objects are only determined within some uncertainty.
+ Further, as they travel along their orbits are perturbed by the gravity
+ of the planets and other forces which are harder to model (e.g., the 
+\emph on
+Yarkovsky effect
+\emph default
+).
+ This means that the predicted position of the asteroid at some future time
+ lies within some region of uncertainty.
+ If the Earth is inside that volume then there is a potential, but uncertain,
+ impact.
+ A probability (a number between zero and one representing a degree of certainty
+) can be assigned to the impact and this can be factored into the hazard
+ as measured by, for example, the Palermo Technical Impact Hazard Scale
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PHAs"
+
+\end_inset
+
+.
+ Only impacts which rate sufficiently highly on the scale merit attention
+ by officials.
+ Lower scoring impacts are likely to disappear as improved measurements
+ reduce the uncertainty of the predicted orbit (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:earth-impact"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Another example of where estimating and reporting uncertainties is crucial
+ is climate change.
+ Yes, temperature is going to go up, but by how much? And how certain can
+ we be of that prediction? That is the trillion dollar question.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:IPCC-temperature-prediction"
+
+\end_inset
+
+ illustrates the range of predictions for the global average temperature.
+ Reporting not only the central prediction, but also the range of likely
+ values under the various scenarios allows policy makers to (in principle)
+ weigh up the risks and benefits of different mitigation policies.
+ It also allows one to re-frame the discussion in beneficial ways.
+ For instance, instead of fruitlessly debating the 
+\emph on
+reality
+\emph default
+ of anthropogenic climate change with a 
+\begin_inset Quotes eld
+\end_inset
+
+sceptic,
+\begin_inset Quotes erd
+\end_inset
+
+ one could instead ask 
+\begin_inset Quotes eld
+\end_inset
+
+at what level of 
+\emph on
+risk
+\emph default
+ would you be prepared to take action?
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/nea_discovery_stats.png
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nea-discovery-stats"
+
+\end_inset
+
+Near Earth asteroid discoveries by year.
+ Figure from NASA's Near-Earth Object program 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PHAs"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/earth_impact_risk.eps
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:earth-impact"
+
+\end_inset
+
+Illustration of projected Earth impact by an asteroid (red star) with a
+ large uncertainty (red ellipse).
+ As further observations are made the uncertainty narrows to the blue ellipse
+ with a predicted location at the blue star.
+ The updated prediction is still within the old uncertainty region, but
+ the new uncertainty region no longer contains the Earth and the impact
+ hazard disappears.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/climate_change_temperature_pred.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:IPCC-temperature-prediction"
+
+\end_inset
+
+Climate change predictions for global average temperature under a range
+ of carbon policy scenarios from strong mitigation (RCP2.6) through high
+ emissions (RCP8.5).
+ The shaded bands represent the uncertainties of the predictions estimated
+ on the basis of an ensemble of climate models.
+ The numbers adjacent to each band represent the number of models included
+ in the ensembles.
+ The shaded rectangles at the right indicate the range of end of century
+ predictions for each scenario.
+ Figure from the IPCC Fifth Assessment Report 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IPCC"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course, no undergraduate physics laboratory has the same level of societal
+ import as the examples given above.
+ Here is a more likely scenario for your course: you are measuring the emission
+ spectrum of atomic hydrogen and, after carefully calibrating the equipment
+ as best you can, you find that all of your measured spectral lines differ
+ in wavelength from their accepted values by a few percent.
+ Have you just overturned atomic theory? The answer is: no, you haven't.
+ But how can you be sure? This is where error analysis comes in.
+ Error analysis is something you do 
+\emph on
+before
+\emph default
+ seeing any 
+\begin_inset Quotes eld
+\end_inset
+
+accepted
+\begin_inset Quotes erd
+\end_inset
+
+ values.
+ A number of students have thought that error analysis means comparing measured
+ or computed values against published values to see if they differ by, say,
+ 5% or less, in which case they say the measurement is compatible with the
+ accepted value.
+ This is completely wrong.
+ Maybe you can measure to an accuracy 
+\emph on
+better
+\emph default
+ than 5%, in which case the difference is significant.
+ Error analysis is knowing the accuracy and precision of your measurement
+ 
+\emph on
+before
+\emph default
+ looking in the back of the book.
+ If you don't do the error analysis then you'll never be able to say that
+ 
+\emph on
+the number in the back of the book
+\emph default
+ is wrong, there is no point to doing experiments, and science would never
+ advance!
+\end_layout
+
+\begin_layout Standard
+To make this all clear we must distinguish between three concepts: the true
+ value of some quantity, its measured value, and the theoretical predicted
+ value.
+ The true value of a quantity is a property of the real world, independent
+ of any observer (check your post-modern philosophies at the door please!).
+ The measured value is 
+\emph on
+not
+\emph default
+ directly related to the true value.
+ It is a product of the system under study 
+\emph on
+along with
+\emph default
+ the measuring device (which may include yourself).
+ 
+\emph on
+Classical
+\emph default
+ intuition suggests that you can reduce the influence of the measuring device
+ upon the system to such an extent that, to a very good approximation, a
+ measurement can be treated as simply revealing a property of the system.
+ However, our 
+\emph on
+quantum
+\emph default
+ reality is such that an absolute lower limit to this influence exists:
+ measurement is the result of an irreducible interaction between a system
+ and a measuring device
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+I mention this for completeness.
+ The quantum nature of measurements is largely irrelevant in undergraduate
+ laboratories.
+\end_layout
+
+\end_inset
+
+.
+ Finally a theoretical prediction is just that: the output of some theoretician'
+s idle musings (or a rigorously defined theoretical framework).
+ At the end of the day you will compare the measured value 
+\emph on
+with uncertainties
+\emph default
+, something like 
+\begin_inset Formula $x\pm\Delta x$
+\end_inset
+
+, with the theoretical value 
+\begin_inset Formula $x_{\mathrm{th}}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x-\Delta x\leq x_{\mathrm{th}}\leq x+\Delta x$
+\end_inset
+
+ you will say the measured value is compatible with the theory; otherwise
+ it is incompatible: either the theory is wrong or inapplicable, 
+\emph on
+or the experiment has some unaccounted for error
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+It is actually possible for both of these things to be true.
+ For example, in 1918 Eddington led an expedition to measure the bending
+ of starlight caused by the sun's gravity.
+ He announced a definite effect in agreement with Einstein's new theory
+ of general relativity and overthrowing Newtonian gravity.
+ This caused Einstein to become an overnight sensation.
+ Later, it turned out that Eddington's measurement was in error, but Einstein
+ was still right and Newton was still wrong.
+ Today there are many spectacular confirmations of general relativity, including
+ GPS.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Advanced Topics
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Advanced-Topics"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Further Reading
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Further-Reading"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "PHAs"
+
+\end_inset
+
+Potentially hazardous asteroids and impact threats are tracked by NASA's
+ Near-Earth Object program (http://neo.jpl.nasa.gov) and the Minor Planet Center
+ (http://www.minorplanetcenter.net), both of which make their data publically
+ available.
+ The Palermo scale incorporates impact probability and the background risk
+ to assess the hazard of a given PHA (http://neo.jpl.nasa.gov/risk/doc/palermo.html).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "2"
+key "IPCC"
+
+\end_inset
+
+IPCC, 2013: Summary for Policymakers.
+ In: Climate Change 2013: The Physical Science Basis.
+ Contribution of Working Group I to the Fifth Assessment Report of the Intergove
+rnmental Panel on Climate Change [Stocker, T.F., D.
+ Qin, G.-K.
+ Plattner, M.
+ Tignor, S.K.
+ Allen, J.
+ Boschung, A.
+ Nauels, Y.
+ Xia, V.
+ Bex and P.M.
+ Midgley (eds.)].
+ Cambridge University Press, Cambridge, United Kingdom and New York, NY,
+ USA.
+ Available online from http://www.climatechange2013.org
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Error Analysis Cheat Sheet
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Cheat-Sheet"
 
 \end_inset
 
