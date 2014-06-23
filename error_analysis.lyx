@@ -501,6 +501,27 @@ A measurement without error bars is worthless.
 - Every physicist everywhere
 \end_layout
 
+\begin_layout Quotation
+
+\emph on
+A measurement result is complete only when accompanied by a quantitative
+ statement of its uncertainty.
+ The uncertainty is required in order to decide if the result is adequate
+ for its intended purpose and to ascertain if it is consistent with other
+ similar results.
+\end_layout
+
+\begin_layout Quotation
+- NIST
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NIST"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Are errors really that important? In fact it is easy to imagine circumstances
  where the error or uncertainty of a measurement or prediction is at least
@@ -576,50 +597,6 @@ reference "fig:earth-impact"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Standard
-Another example of where estimating and reporting uncertainties is crucial
- is climate change.
- Yes, temperature is going to go up, but by how much? And how certain can
- we be of that prediction? That is the trillion dollar question.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:IPCC-temperature-prediction"
-
-\end_inset
-
- illustrates the range of predictions for the global average temperature.
- Reporting not only the central prediction, but also the range of likely
- values under the various scenarios allows policy makers to (in principle)
- weigh up the risks and benefits of different mitigation policies.
- It also allows one to re-frame the discussion in beneficial ways.
- For instance, instead of fruitlessly debating the 
-\emph on
-reality
-\emph default
- of anthropogenic climate change with a 
-\begin_inset Quotes eld
-\end_inset
-
-sceptic,
-\begin_inset Quotes erd
-\end_inset
-
- one could instead ask 
-\begin_inset Quotes eld
-\end_inset
-
-at what level of 
-\emph on
-risk
-\emph default
- would you be prepared to take action?
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -727,6 +704,50 @@ Illustration of projected Earth impact by an asteroid (red star) with a
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another example of where estimating and reporting uncertainties is crucial
+ is climate change.
+ Yes, temperature is going to go up, but by how much? And how certain can
+ we be of that prediction? That is the trillion dollar question.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:IPCC-temperature-prediction"
+
+\end_inset
+
+ illustrates the range of predictions for the global average temperature.
+ Reporting not only the central prediction, but also the range of likely
+ values under the various scenarios allows policy makers to (in principle)
+ weigh up the risks and benefits of different mitigation policies.
+ It also allows one to re-frame the discussion in beneficial ways.
+ For instance, instead of fruitlessly debating the 
+\emph on
+reality
+\emph default
+ of anthropogenic climate change with a 
+\begin_inset Quotes eld
+\end_inset
+
+sceptic,
+\begin_inset Quotes erd
+\end_inset
+
+ one could instead ask 
+\begin_inset Quotes eld
+\end_inset
+
+at what level of 
+\emph on
+risk
+\emph default
+ would you be prepared to take action?
+\begin_inset Quotes erd
 \end_inset
 
 
@@ -866,7 +887,7 @@ quantum
  measurement is the result of an irreducible interaction between a system
  and a measuring device
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I mention this for completeness.
@@ -920,7 +941,128 @@ It is actually possible for both of these things to be true.
 
 \end_inset
 
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Actually it is more subtle than this, as we will see.
+ Often we assign a probability to an error bar rather than a certainty (i.e.,
+ we say 
+\begin_inset Quotes eld
+\end_inset
+
+with a probability of 95% 
+\begin_inset Formula $x$
+\end_inset
+
+ is between 
+\begin_inset Formula $x-\Delta x$
+\end_inset
+
+ and 
+\begin_inset Formula $x+\Delta x$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Also, there can be uncertainties in the theoretical prediction due to,
+ for example, approximations made in the calculation.
+ So one often finds articles stating 
+\begin_inset Quotes eld
+\end_inset
+
+the data are 
+\emph on
+in tension
+\emph default
+ with the theory,
+\begin_inset Quotes erd
+\end_inset
+
+ rather than contradicting it outright.
+ Except, of course, for the very clear cut cases.
+\end_layout
+
+\end_inset
+
 .
+\end_layout
+
+\begin_layout Standard
+I mentioned accuracy and precision before.
+ These are different concepts.
+ An ideal measurement has both accuracy and precision.
+ A measurement is 
+\emph on
+accurate
+\emph default
+ if the average of many repetitions of the measurement tends to the true
+ value as the number of repetitions increases.
+ If the measurement is inaccurate then the average of repetitions will converge
+ to some other value than the true value.
+ A 
+\emph on
+precise
+\emph default
+ measurement is one that has nearly the same value on every repetition.
+ A set of repetitions of an imprecise measurement shows a great deal of
+ scatter.
+ These qualities can be illustrated with a target analogy.
+ In this analogy a measurement is represented by an arrow shot at a target,
+ with the true value at the bullseye.
+ A set of repetitions is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:accuracy-vs-precision"
+
+\end_inset
+
+ for the various types of measurements.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/accuracy-vs-precision.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:accuracy-vs-precision"
+
+\end_inset
+
+Accuracy and precision illustrated with the target analogy.
+ Repeated accurate measurements are centred on the bullseye.
+ Repeated precise measurements have little spread.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -956,22 +1098,86 @@ name "sec:Further-Reading"
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "1"
-key "PHAs"
+key "NIST"
 
 \end_inset
 
-Potentially hazardous asteroids and impact threats are tracked by NASA's
- Near-Earth Object program (http://neo.jpl.nasa.gov) and the Minor Planet Center
- (http://www.minorplanetcenter.net), both of which make their data publically
- available.
- The Palermo scale incorporates impact probability and the background risk
- to assess the hazard of a given PHA (http://neo.jpl.nasa.gov/risk/doc/palermo.html).
+NIST is the U.S.
+ National Institute of Standards and Technology.
+ General information about calculating and reporting measurement uncertainties
+ can be found at 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://physics.nist.gov/cuu/Uncertainty/index.html"
+
+\end_inset
+
+.
+ They also maintain an up to date listing of 
+\begin_inset Quotes eld
+\end_inset
+
+official
+\begin_inset Quotes erd
+\end_inset
+
+ values for the physical constants at 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://physics.nist.gov/cuu/Constants/index.html"
+
+\end_inset
+
+.
+ The quote is taken from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://physics.nist.gov/cuu/Uncertainty/international1.html"
+
+\end_inset
+
+, accessed 24 June 2014.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "2"
+key "PHAs"
+
+\end_inset
+
+Potentially hazardous asteroids and impact threats are tracked by NASA's
+ Near-Earth Object program (
+\begin_inset CommandInset href
+LatexCommand href
+target "http://neo.jpl.nasa.gov"
+
+\end_inset
+
+) and the Minor Planet Center (
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.minorplanetcenter.net"
+
+\end_inset
+
+), both of which make their data publically available.
+ The Palermo scale incorporates impact probability and the background risk
+ to assess the hazard of a given PHA (
+\begin_inset CommandInset href
+LatexCommand href
+target "http://neo.jpl.nasa.gov/risk/doc/palermo.html"
+
+\end_inset
+
+, accessed 24 June 2014).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "3"
 key "IPCC"
 
 \end_inset
@@ -991,7 +1197,14 @@ rnmental Panel on Climate Change [Stocker, T.F., D.
  Midgley (eds.)].
  Cambridge University Press, Cambridge, United Kingdom and New York, NY,
  USA.
- Available online from http://www.climatechange2013.org
+ Available online from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.climatechange2013.org"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
