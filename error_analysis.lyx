@@ -992,6 +992,10 @@ in tension
 .
 \end_layout
 
+\begin_layout Subsection
+Precision and Accuracy, Types of Errors
+\end_layout
+
 \begin_layout Standard
 I mentioned accuracy and precision before.
  These are different concepts.
@@ -1028,7 +1032,7 @@ reference "fig:accuracy-vs-precision"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1058,6 +1062,303 @@ Accuracy and precision illustrated with the target analogy.
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inaccuracy and imprecision cause two different types of errors: systematic
+ and random errors respectively.
+ 
+\emph on
+Random errors
+\emph default
+ or, equivalently, 
+\emph on
+statistical errors
+\emph default
+ are the result of uncontrollable random processes involved in the measurement.
+ Examples include electrical noise, radioactive decays and reaction times
+ (as in timing something with a stopwatch etc.).
+ These errors benefit from averaging: when a measurement is repeated sometimes
+ the random errors will produce a value larger than the true value, but
+ other times they will produce a value smaller than the true value.
+ Averaging together multiple repetitions washes out the individual fluctuations
+ and produces a more certain estimate of the true value.
+ The general rule of thumb is that the mean of 
+\begin_inset Formula $n$
+\end_inset
+
+ independent repetitions of a measurement with an error of 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ has an error of 
+\begin_inset Formula $\Delta x/\sqrt{n}$
+\end_inset
+
+.
+ Much more on this later.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Systematic errors
+\emph default
+ are those that affect all repetitions of a measurement equally and hence
+ do not average out.
+ They are the result of factors which could be corrected if they were known
+ about, for example: miscalibrated measuring equipment, unaccounted for
+ environmental effects, misalignments etc.
+ Finding and eliminating systematic errors is essentially the craft of experimen
+tal physics.
+ An undiagnosed systematic error means you are not really measuring what
+ you think you are, which can lead to potentially serious consequences.
+ A parable and two modern day case studies will amptly illustrate the point.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Parable: emperor of China, c.f.
+ Jaynes book
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+OPERA
+\noun default
+ is an experiment at the Gran Sasso Laboratory in Italy which measures a
+ beam of neutrinos produced at the SPS proton accelerator at CERN in Geneva,
+ 730 km away (the beam goes through the ground: neutrinos are very weakly
+ interacting particles, and pass through the Earth almost like it is not
+ there).
+ The neutrinos are produced in timed bunches.
+ This set-up, with fixed source and target, allows a very accurate measurement
+ of the travel time and hence the velocity of the neutrinos
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This is a small part of OPERA's research program.
+ The velocity was originally considered a nice measurement they could do
+ at no extra cost.
+ It was not considered notable until the later controversy broke out.
+\end_layout
+
+\end_inset
+
+.
+ According to theory the velocity should be unmeasurably slower than the
+ speed of light
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\size normal
+The velocity is 
+\begin_inset Formula $v\approx c\left[1-\frac{1}{2}\left(\frac{mc^{2}}{E}\right)^{2}+\mathcal{O}\left(\frac{m^{3}c^{6}}{E^{3}}\right)\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $m$
+\end_inset
+
+ is the neutrino mass, 
+\begin_inset Formula $c$
+\end_inset
+
+ is the speed of light and 
+\begin_inset Formula $E$
+\end_inset
+
+ is the neutrino energy.
+ Since 
+\begin_inset Formula $mc^{2}\sim1\ \mathrm{eV}$
+\end_inset
+
+ and OPERA has 
+\begin_inset Formula $E\sim17\ \mathrm{GeV}$
+\end_inset
+
+, the neutrinos are expected to go at a fraction 
+\begin_inset Formula $\sim10^{-21}$
+\end_inset
+
+ slower than 
+\begin_inset Formula $c$
+\end_inset
+
+, which is unmeasurably small.
+\end_layout
+
+\end_inset
+
+ and certainly not 
+\emph on
+more
+\emph default
+ than the speed of light.
+ In other words the theory predicts that the measured value of 
+\begin_inset Formula $\left(v-c\right)/c$
+\end_inset
+
+ should be consistent with zero.
+ However, in 2011 OPERA reported a definitive measurement that the neutrinos
+ travelled faster than light.
+ They reported the result as follows: 
+\begin_inset Formula 
+\[
+\left(v-c\right)/c=\left(2.37\pm0.32\left(\mathrm{stat.}\right)_{-0.24}^{+0.34}\left(\mathrm{sys.}\right)\right)\times10^{-5}.
+\]
+
+\end_inset
+
+There are a few things to notice here.
+ They report the statistical uncertainty 
+\begin_inset Formula $\pm0.32\left(\mathrm{stat.}\right)$
+\end_inset
+
+ and the systematic uncertainty 
+\begin_inset Formula $_{-0.24}^{+0.34}\left(\mathrm{sys.}\right)$
+\end_inset
+
+ separately.
+ Also, the systematic uncertainty has asymmetric error bars.
+ The notation 
+\begin_inset Formula $x_{-\Delta x_{2}}^{+\Delta x_{1}}$
+\end_inset
+
+ means the true value of 
+\begin_inset Formula $x$
+\end_inset
+
+ is between 
+\begin_inset Formula $x-\Delta x_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $x+\Delta x_{1}$
+\end_inset
+
+.
+ When 
+\begin_inset Formula $\Delta x_{1}=\Delta x_{2}$
+\end_inset
+
+ it is unnecessary to quote the two errors separately and you can use the
+ more common notation for a symmetric error bar 
+\begin_inset Formula $x\pm\Delta x$
+\end_inset
+
+.
+ Also, note that they have pulled the common factor 
+\begin_inset Formula $10^{-5}$
+\end_inset
+
+ out of the whole central value and error bar expression.
+ This makes the result easier to read.
+ The 
+\begin_inset Formula $10^{-5}$
+\end_inset
+
+ multiplies every number inside the parenthesis.
+ Finally, notice that the smallest possible value for 
+\begin_inset Formula $v$
+\end_inset
+
+ obtains if the statistical and systematic uncertainties are the most negative
+ they can be: 
+\begin_inset Formula $\left[\left(v-c\right)/c\right]_{\mathrm{minimum}}=\left(2.37-0.32-0.24\right)\times10^{-5}=1.81$
+\end_inset
+
+.
+ Not only is this greater than zero, it differs from zero by more than five
+ times the statistical uncertainty.
+ Thus OPERA confidently announced a 
+\emph on
+statistically significant
+\emph default
+ measurement of 
+\begin_inset Formula $v>c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+There are two possibilities at this point: either not all sources of error
+ were accounted for or the theory (Einstein's theory of special relativity)
+ is wrong.
+ While the media excitedly produced a torrent of 
+\begin_inset Quotes eld
+\end_inset
+
+Einstein proved wrong
+\begin_inset Quotes erd
+\end_inset
+
+ articles, the OPERA team set about the job of checking and re-checking
+ everything that could possibly go wrong with their experiment.
+ After months of work they were able to find two systematic errors that
+ had not been accounted for: an incorrectly connected fibre optic cable
+ and a drifting over time of the master clock.
+ On fixing both these problems and re-running the experiment (with several
+ other cross-checks) a revised measurement was obtained:
+\begin_inset Formula 
+\[
+\left(v-c\right)/c=\left(2.7\pm3.1\left(\mathrm{stat.}\right)_{-3.3}^{+3.4}\left(\mathrm{sys.}\right)\right)\times10^{-6},
+\]
+
+\end_inset
+
+which you can see is consistent with zero as theory predicted 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OPERA"
+
+\end_inset
+
+.
+ Since that time three other experiments have confirmed that neutrino velocities
+ are compatible with the speed of light.
+ From a scientific perspective the provisional result and ensuing investigation
+ and confirmatory experiments were handled correctly according to the scientific
+ method.
+ Unfortunately however, the press release led to a torrent of sensationalism
+ in the media, which damaged the reputation of the OPERA team and lead to
+ internal tensions, eventually resulting in several of the team leaders
+ resigning from their leadership positions.
+ The moral of the story is to hold carefully to the maxim 
+\begin_inset Quotes eld
+\end_inset
+
+extraordinary claims require extraordinary evidence.
+\begin_inset Quotes erd
+\end_inset
+
+ The cost of a mistake can be your career, or more.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Case study 2: BICEP2
 \end_layout
 
 \end_inset
@@ -1201,6 +1502,83 @@ rnmental Panel on Climate Change [Stocker, T.F., D.
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.climatechange2013.org"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "4"
+key "JAYNESBOOK"
+
+\end_inset
+
+E.
+ T.
+ Jaynes, Probability Theory: The Logic of Science.
+ (Cambridge University Press, 2003) ISBN: 9780521592710 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.cambridge.org/au/academic/subjects/physics/theoretical-physics-and-mathematical-physics/probability-theory-logic-science"
+
+\end_inset
+
+.
+ An incomplete version of the book is available freely (legitimately) online
+ at 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://omega.albany.edu:8008/JaynesBook.html"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "5"
+key "OPERA"
+
+\end_inset
+
+T.
+ Adam et al., Measurement of the Neutrino Velocity with the OPERA Detector
+ in the CNGS Beam.
+ J.
+ High Energy Phys.
+ 2012, 93 (2012) 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://link.springer.com/10.1007/JHEP10(2012)093"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://arxiv.org/abs/1109.4897"
+
+\end_inset
+
+.
+ The version with the erroneous result: 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://arxiv.org/abs/1109.4897v2"
+
+\end_inset
+
+.
+ The detective story of the finding of the problems in the experiment is
+ told here: 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://profmattstrassler.com/articles-and-posts/particle-physics-basics/neutrinos/neutrinos-faster-than-light/opera-what-went-wrong/"
 
 \end_inset
 
