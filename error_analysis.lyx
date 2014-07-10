@@ -994,6 +994,13 @@ in tension
 
 \begin_layout Subsection
 Precision and Accuracy, Types of Errors
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Precision-and-Accuracy-and-Types-of-Errors"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1332,7 +1339,7 @@ There are a few things to notice here.
 
  obtains if the statistical and systematic uncertainties are the most negative
  they can be: 
-\begin_inset Formula $\left[\left(v-c\right)/c\right]_{\mathrm{minimum}}=\left(2.37-0.32-0.24\right)\times10^{-5}=1.81$
+\begin_inset Formula $\left[\left(v-c\right)/c\right]_{\mathrm{minimum}}=\left(2.37-0.32-0.24\right)\times10^{-5}=1.81\times10^{-5}$
 \end_inset
 
 .
@@ -1414,8 +1421,8 @@ There are some other special types of errors worth mentioning.
 \emph on
 Digitisation error
 \emph default
- results from the limited precision of a decimal approximation to a real
- number.
+ is a random error that results from the limited precision of a decimal
+ approximation to a real number.
  For example, suppose you are reading a digital voltmeter with the display
  format 
 \begin_inset Formula $\mathrm{XXX.XX}$
@@ -1490,8 +1497,8 @@ Rounding error
  Rounding errors compound with each step of the calculation and numerical
  accuracy can be killed with surprisingly few stages of rounding.
  So take this advice: keep as many digits as possible in the intermediate
- stages of a computation, and only round of to a reasonable few at the final
- stage of reporting your results.
+ stages of a computation, and only round off to a reasonable few at the
+ final stage of reporting your results.
  Even better is to organise your calculations such that the minimum number
  of steps is required.
  For example, derive as many the quantities of interest as possible as analytica
@@ -1510,6 +1517,207 @@ l formulae involving the things you immediately measure, and only substitute
  which only involves three multiplications and three additions.
  Generally if the expressions have a lot of structure or repeating patterns
  they can be rearranged in some way to reduce the number of steps.
+ Be especially careful if you need to take the difference of two large,
+ close numbers to get a small number.
+ For example, if you take 
+\begin_inset Formula $12456-12453=3$
+\end_inset
+
+, but if you round prematurely you might get 
+\begin_inset Formula $12460-12450=10$
+\end_inset
+
+ or even 
+\begin_inset Formula $12500-12500=0$
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Standard
+In summary so far:
+\end_layout
+
+\begin_layout Itemize
+For better or for worse, 
+\begin_inset Quotes eld
+\end_inset
+
+error
+\begin_inset Quotes erd
+\end_inset
+
+ is synonymous with 
+\begin_inset Quotes eld
+\end_inset
+
+uncertainty
+\begin_inset Quotes erd
+\end_inset
+
+ in the physics literature.
+\end_layout
+
+\begin_layout Itemize
+A measurement without a quoted error bar is meaningless.
+\end_layout
+
+\begin_layout Itemize
+Much of the art of experimental physics is finding, estimating and controlling
+ the various sources of error in an experiment.
+\end_layout
+
+\begin_layout Itemize
+There are two general types of errors that concern us:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+Random
+\emph default
+ or 
+\emph on
+statistical
+\emph default
+ errors are due to unpredictable and uncontrollable influences on the experiment.
+ These errors can generally be reduced by averaging repetitions of the experimen
+t, so long as the enough time has passed between measurements for the random
+ influences have changed, but not so much time has passed that the thing
+ to be measured has itself changed.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A special case is digitisation error.
+ The error is half of the last decimal place, e.g.
+ if a digital measurement device reads 
+\begin_inset Formula $123.45$
+\end_inset
+
+ then quote 
+\begin_inset Formula $123.450\pm0.005$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\emph on
+Systematic
+\emph default
+ errors are due to regular but unaccounted for influences such as environmental
+ conditions, miscalibrated equipment and improper measurement techniques
+ (e.g.
+ reading an analogue scale from an oblique angle).
+ These can only be reduced by improving the experimental design.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Absolute and Relative Errors, Quoting of Errors
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Absolute-and-Relative-Errors"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So now that we have seen the importance of estimating errors and the different
+ types of errors, how do you quote them? There are two basic ways.
+ 
+\emph on
+Absolute
+\emph default
+ errors are errors measured on an absolute scale in the same units as the
+ measurement itself.
+ For example, when measuring an electric current of 
+\begin_inset Formula $250.0\ \mathrm{mA}$
+\end_inset
+
+ with a device that only shows tenths place there is a digitisation error
+ of 
+\begin_inset Formula $0.05\ \mathrm{mA}$
+\end_inset
+
+.
+ This is in the same units as the thing we are measuring and is a characteristic
+ of the measuring device independent of the scale of the thing being measured.
+ It is an absolute error and we can report it as 
+\begin_inset Formula $250.00\pm0.05\ \mathrm{mA}$
+\end_inset
+
+.
+ Note that the central value and the error are given in the same units and
+ the unit is listed once at the end of the expression.
+ Another common way of reporting the same value is 
+\begin_inset Formula $250.00\left(5\right)\ \mathrm{mA}$
+\end_inset
+
+.
+ The number in parenthesis indicates the uncertainty in the last digit.
+ If the number in parenthesis had two digits it would represent the uncertainty
+ in the last two digits, i.e.
+ 
+\begin_inset Formula $250.00\left(15\right)\ \mathrm{mA}$
+\end_inset
+
+ is the same as 
+\begin_inset Formula $250.00\pm0.15\ \mathrm{mA}$
+\end_inset
+
+.
+ You can use either notation so long as you are clear about the meaning
+ of it.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Relative
+\emph default
+ errors are the error reported as a fraction of the measured value.
+ These gives a sense of how large the error is compared to the measurement
+ itself, and are most often reported as percentages.
+ In our case we have 
+\begin_inset Formula $0.05\ \mathrm{mA}/250.00\ \mathrm{mA}=0.02\%$
+\end_inset
+
+ and we could quote 
+\begin_inset Formula $\left(250.00\pm0.02\%\right)\ \mathrm{mA}$
+\end_inset
+
+.
+ Note that the relative error does not directly tell you much about the
+ measuring device.
+ For example, if the central value were ten times smaller the absolute digitisat
+ion error would still be the same (assuming the meter does not change the
+ display format as the scale changes), i.e.
+ 
+\begin_inset Formula $25.00\pm0.05\ \mathrm{mA}$
+\end_inset
+
+.
+ The relative error in this case is ten times larger, 
+\begin_inset Formula $0.2\%$
+\end_inset
+
+.
+ So relative errors are not as meaningful as absolute errors without also
+ knowing the central value.
+ However, relative errors are useful for many other purposes and are often
+ a good way to quote the error.
+\end_layout
+
+\begin_layout Standard
+Now the matter of rounding.
+ ...
 \end_layout
 
 \begin_layout Section
