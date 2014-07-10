@@ -1118,30 +1118,80 @@ Systematic errors
 tal physics.
  An undiagnosed systematic error means you are not really measuring what
  you think you are, which can lead to potentially serious consequences.
- A parable and two modern day case studies will amptly illustrate the point.
+ A parable and a modern day case study will amply illustrate the point.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+The parable tells of a man who wanted to measure the height of the emperor
+ of China.
+ So he travelled through China asking each person what they though the height
+ of the emperor was.
+ We suppose they all know the height of the emperor to a precision of at
+ least 
+\begin_inset Formula $\Delta x=\pm1\ \mathrm{m}$
+\end_inset
 
-\begin_layout Plain Layout
-Parable: emperor of China, c.f.
- Jaynes book
-\end_layout
+.
+ If our researcher asks 
+\begin_inset Formula $n=1\,000\,000\,000$
+\end_inset
+
+ people then the standard logic dictates that averaging their results gives
+ an error in the mean of
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JAYNESBOOK"
 
 \end_inset
 
 
+\begin_inset Formula 
+\[
+\frac{\Delta x}{\sqrt{n}}=3\times10^{-5}\ \mathrm{m}=0.03\ \mathrm{mm}!
+\]
+
+\end_inset
+
+This result is clearly absurd.
+ No one would call this a good way of measuring the height of the emperor
+ of China.
+ Surely most of the people polled have never even seen the emperor! However,
+ a common folklore would have grown up around him as people told and discussed
+ stories of their emperor
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This is common.
+ To this day people persist in the illusion that Napoleon Bonaparte was
+ short.
+ He was average height for the time.
+\end_layout
+
+\end_inset
+
+.
+ This measurement is thus a very precise measurement 
+\emph on
+of the folklore
+\emph default
+, but not of the actual height of the emperor.
+ There is a systematic error propagated through the entire population which
+ causes an illusion of the emperor distinct from the reality.
+ The only way to obtain an accurate measurement of the emperor is to find
+ the man himself and measure him.
+ Of course, this is consistent with all common sense and probability theory.
+ Only a failure to distinguish the different types of errors leads to the
+ wrong interpretation.
 \end_layout
 
 \begin_layout Standard
-
+Our case study is 
 \noun on
 OPERA
 \noun default
- is an experiment at the Gran Sasso Laboratory in Italy which measures a
- beam of neutrinos produced at the SPS proton accelerator at CERN in Geneva,
+: an experiment at the Gran Sasso Laboratory in Italy which measures a beam
+ of neutrinos produced at the SPS proton accelerator at CERN in Geneva,
  730 km away (the beam goes through the ground: neutrinos are very weakly
  interacting particles, and pass through the Earth almost like it is not
  there).
@@ -1246,7 +1296,7 @@ There are a few things to notice here.
 \begin_inset Formula $x$
 \end_inset
 
- is between 
+ is likely between 
 \begin_inset Formula $x-\Delta x_{2}$
 \end_inset
 
@@ -1288,6 +1338,8 @@ There are a few things to notice here.
 .
  Not only is this greater than zero, it differs from zero by more than five
  times the statistical uncertainty.
+ This means that such a large disagreement is very unlikely to arise by
+ chance.
  Thus OPERA confidently announced a 
 \emph on
 statistically significant
@@ -1342,28 +1394,122 @@ key "OPERA"
  in the media, which damaged the reputation of the OPERA team and lead to
  internal tensions, eventually resulting in several of the team leaders
  resigning from their leadership positions.
- The moral of the story is to hold carefully to the maxim 
+ There are two morals to the story: understanding and estimating the systematic
+ uncertainties is crucial to the correct interpretation of an experiment,
+ and hold carefully to the maxim 
 \begin_inset Quotes eld
 \end_inset
 
-extraordinary claims require extraordinary evidence.
+extraordinary claims require extraordinary evidence,
 \begin_inset Quotes erd
 \end_inset
 
- The cost of a mistake can be your career, or more.
+ especially when talking to the general public.
+ The cost of a mistake can be your career.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+There are some other special types of errors worth mentioning.
+ 
+\emph on
+Digitisation error
+\emph default
+ results from the limited precision of a decimal approximation to a real
+ number.
+ For example, suppose you are reading a digital voltmeter with the display
+ format 
+\begin_inset Formula $\mathrm{XXX.XX}$
+\end_inset
+
+.
+ Since the device can only display two digits after the decimal point the
+ remaining digits of the true value must be rounded in some way.
+ Different devices can do the rounding differently but you would generally
+ expect 
+\begin_inset Formula $0.004999\cdots$
+\end_inset
+
+ to round down and 
+\begin_inset Formula $0.005000\cdots$
+\end_inset
+
+ to round up (this is by far the most common rounding method, but it is
+ not universal).
+ Assuming this is the rounding method then we know that a reading of 
+\begin_inset Formula $123.45$
+\end_inset
+
+ volts corresponds to a true value between 
+\begin_inset Formula $123.445$
+\end_inset
+
+ and 
+\begin_inset Formula $123.455$
+\end_inset
+
+.
+ Thus we report the reading as the central value 
+\begin_inset Formula $\pm$
+\end_inset
+
+ the difference between the central and the extremes
+\begin_inset Foot
+status collapsed
 
 \begin_layout Plain Layout
-Case study 2: BICEP2
+There is a case to be made for dividing the digitisation error by 
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+ before quoting it.
+ This gives 
+\begin_inset Formula $123.450\pm0.003$
+\end_inset
+
+ in the present case.
+ The reasoning behind this will be discussed in the Advanced Topics section.
+ For this course do not divide the error.
 \end_layout
 
 \end_inset
 
+: 
+\begin_inset Formula $123.450\pm0.005$
+\end_inset
 
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Rounding error
+\emph default
+ is a related form of error when you round of results at an intermediate
+ stage of calculation.
+ Rounding errors compound with each step of the calculation and numerical
+ accuracy can be killed with surprisingly few stages of rounding.
+ So take this advice: keep as many digits as possible in the intermediate
+ stages of a computation, and only round of to a reasonable few at the final
+ stage of reporting your results.
+ Even better is to organise your calculations such that the minimum number
+ of steps is required.
+ For example, derive as many the quantities of interest as possible as analytica
+l formulae involving the things you immediately measure, and only substitute
+ in the numerical values at the last stage.
+ There are other tricks for organising your algebra.
+ For example, if you need to compute a third order polynomial function 
+\begin_inset Formula $f\left(x\right)=a+bx+cx^{2}+dx^{3}$
+\end_inset
+
+ don't do it as written (which involves six multiplications and three additions).
+ Instead rearrange the computation as 
+\begin_inset Formula $f\left(x\right)=a+x\left(b+x\left(c+dx\right)\right)$
+\end_inset
+
+ which only involves three multiplications and three additions.
+ Generally if the expressions have a lot of structure or repeating patterns
+ they can be rearranged in some way to reduce the number of steps.
 \end_layout
 
 \begin_layout Section
