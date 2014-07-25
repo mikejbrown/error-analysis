@@ -12,6 +12,7 @@
 theorems-ams
 eqs-within-sections
 figs-within-sections
+customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
 \language british
@@ -67,8 +68,8 @@ figs-within-sections
 \paragraph_indentation default
 \quotes_language english
 \papercolumns 1
-\papersides 1
-\paperpagestyle default
+\papersides 2
+\paperpagestyle fancy
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -78,8 +79,207 @@ figs-within-sections
 
 \begin_body
 
+\begin_layout Left Header
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Header
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Copyright © 2014 Michael J.
+ Brown 
+\begin_inset Graphics
+	filename cc-by-sa.eps
+	height 0.9em
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Copyright © 2014 Michael J.
+ Brown 
+\begin_inset Graphics
+	filename cc-by-sa.eps
+	height 0.9em
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 Error Analysis
+\end_layout
+
+\begin_layout Author
+Michael Brown
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<- gets rid of page number on title page
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -204,12 +404,46 @@ cheat sheet
 \end_inset
 
  are also provided at the end.
+ This open source document is licensed under a 
+\begin_inset CommandInset href
+LatexCommand href
+name "Creative Commons Attribution-ShareAlike 4.0 International License"
+target "http://creativecommons.org/licenses/by-sa/4.0/"
+
+\end_inset
+
+.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+official
+\begin_inset Quotes erd
+\end_inset
+
+ version is maintained in a public Git repository at 
+\begin_inset CommandInset href
+LatexCommand href
+name "URL stub"
+
+\end_inset
+
+.
+ Please feel free to contribute, though only accurate contributions will
+ be accepted into the main branch!
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
 \end_inset
 
 
@@ -335,9 +569,9 @@ Not always!
 \end_inset
 
  reliable in proportion with their cost.
- When you open up a physics or mathematics textbook you'll often find problems
- where all the relevant data is given to you without any uncertainty, and
- often with a suspicious number of digits (
+ When you open up a physics or mathematics textbook you'll often find fairy
+ tale problems where all the relevant data is given to you without any uncertain
+ty, and often with a suspicious number of digits (
 \begin_inset Quotes eld
 \end_inset
 
@@ -475,6 +709,16 @@ frequentists
  The basic idea is to simulate error-prone measurements many times with
  a computer's random number generator and look at the distribution of results
  obtained for the calculation(s) of interest.
+ The goal of this section is to introduce the student to some of the 
+\begin_inset Quotes eld
+\end_inset
+
+under the radar
+\begin_inset Quotes erd
+\end_inset
+
+ concepts and tools for dealing with uncertainty that are extremely useful
+ in many contexts outside of the traditional course structure.
  A bibliography containing further reading material is provided for students
  who want to explore further.
  Happy trails!
@@ -563,8 +807,12 @@ key "PHAs"
 
 .
  Yet, at present, there is no major threat from impacts.
- How is this so? Astronomical measurements are only so good, and the positions
- and velocities of these objects are only determined within some uncertainty.
+ How is this so?
+\end_layout
+
+\begin_layout Standard
+Astronomical measurements are only so good, and the positions and velocities
+ of these objects are only determined within some uncertainty.
  Further, as they travel along their orbits are perturbed by the gravity
  of the planets and other forces which are harder to model (e.g., the 
 \emph on
@@ -601,7 +849,6 @@ reference "fig:earth-impact"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status collapsed
@@ -615,7 +862,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/nea_discovery_stats.png
-	width 100col%
+	width 90col%
 
 \end_inset
 
@@ -637,7 +884,7 @@ key "PHAs"
 
 \end_inset
 
-.
+ (public domain).
 \end_layout
 
 \end_inset
@@ -659,7 +906,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/earth_impact_risk.eps
-	width 100col%
+	width 90col%
 
 \end_inset
 
@@ -710,7 +957,7 @@ Illustration of projected Earth impact by an asteroid (red star) with a
 \end_layout
 
 \begin_layout Standard
-Another example of where estimating and reporting uncertainties is crucial
+Another example where estimating and reporting uncertainties is crucial
  is climate change.
  Yes, temperature is going to go up, but by how much? And how certain can
  we be of that prediction? That is the trillion dollar question.
@@ -755,7 +1002,6 @@ risk
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status collapsed
@@ -763,7 +1009,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/climate_change_temperature_pred.png
-	width 100col%
+	width 90col%
 
 \end_inset
 
@@ -789,6 +1035,15 @@ Climate change predictions for global average temperature under a range
  in the ensembles.
  The shaded rectangles at the right indicate the range of end of century
  predictions for each scenario.
+ This method of estimating the uncertainty is similar to the Monte Carlo
+ method discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+.
  Figure from the IPCC Fifth Assessment Report 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1394,7 +1649,10 @@ key "OPERA"
 .
  Since that time three other experiments have confirmed that neutrino velocities
  are compatible with the speed of light.
- From a scientific perspective the provisional result and ensuing investigation
+\end_layout
+
+\begin_layout Standard
+From a scientific perspective the provisional result and ensuing investigation
  and confirmatory experiments were handled correctly according to the scientific
  method.
  Unfortunately however, the press release led to a torrent of sensationalism
@@ -1402,7 +1660,7 @@ key "OPERA"
  internal tensions, eventually resulting in several of the team leaders
  resigning from their leadership positions.
  There are two morals to the story: understanding and estimating the systematic
- uncertainties is crucial to the correct interpretation of an experiment,
+ uncertainties is crucial to the correct interpretation of an experiment;
  and hold carefully to the maxim 
 \begin_inset Quotes eld
 \end_inset
@@ -1492,8 +1750,8 @@ There is a case to be made for dividing the digitisation error by
 \emph on
 Rounding error
 \emph default
- is a related form of error when you round of results at an intermediate
- stage of calculation.
+ is a related form of error when you round results at an intermediate stage
+ of calculation.
  Rounding errors compound with each step of the calculation and numerical
  accuracy can be killed with surprisingly few stages of rounding.
  So take this advice: keep as many digits as possible in the intermediate
@@ -1534,8 +1792,8 @@ l formulae involving the things you immediately measure, and only substitute
 !
 \end_layout
 
-\begin_layout Standard
-In summary so far:
+\begin_layout Subsubsection*
+Summary
 \end_layout
 
 \begin_layout Itemize
@@ -1583,8 +1841,8 @@ statistical
 \emph default
  errors are due to unpredictable and uncontrollable influences on the experiment.
  These errors can generally be reduced by averaging repetitions of the experimen
-t, so long as the enough time has passed between measurements for the random
- influences have changed, but not so much time has passed that the thing
+t, so long as enough time has passed between measurements for the random
+ influences to have changed, but not so much time has passed that the thing
  to be measured has itself changed.
 \end_layout
 
@@ -1601,6 +1859,8 @@ A special case is digitisation error.
 \end_inset
 
 .
+ This is not strictly a random error, but for many purposes it can be treated
+ as such.
 \end_layout
 
 \end_deeper
@@ -1686,10 +1946,14 @@ Relative
  These gives a sense of how large the error is compared to the measurement
  itself, and are most often reported as percentages.
  In our case we have 
-\begin_inset Formula $0.05\ \mathrm{mA}/250.00\ \mathrm{mA}=0.02\%$
+\begin_inset Formula 
+\[
+0.05\ \mathrm{mA}/250.00\ \mathrm{mA}=0.02\%,
+\]
+
 \end_inset
 
- and we could quote 
+and we could quote 
 \begin_inset Formula $\left(250.00\pm0.02\%\right)\ \mathrm{mA}$
 \end_inset
 
@@ -1717,7 +1981,206 @@ ion error would still be the same (assuming the meter does not change the
 
 \begin_layout Standard
 Now the matter of rounding.
- ...
+ If you followed the advice of Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Precision-and-Accuracy-and-Types-of-Errors"
+
+\end_inset
+
+ and held off rounding intermediate results you will wind up with an end
+ result something like 
+\begin_inset Formula $123.45678901\pm0.00234567$
+\end_inset
+
+.
+ I hope it is obvious that this has far too many figures.
+ In practice you hardly ever know the uncertainty to better than two significant
+ figures.
+ In fact, you often only know the uncertainty to one significant figure.
+ It is meaningless to quote digits of the central value that are a tiny
+ fraction of the uncertainty: by the very definition of uncertainty you
+ should have no confidence in these extra digits.
+ So you should round your final results.
+ Needless to say there is no universal standard for how to do this.
+ For example, no less of an authority than the Particle Data Group offers
+ this gem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PDG2012"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Quotation
+The basic rules states that if the three highest order digits of the error
+ lie between 100 and 354, we round to two significant digits.
+ If they lie between 355 and 949, we round to one significant digit.
+ Finally, if they lie between 950 and 999, we round up to 1000 and keep
+ two significant digits.
+ In all cases, the central value is given with a precision that matches
+ that of the error.
+ So, for example, the result (coming from an average) 
+\begin_inset Formula $0.827\pm0.119$
+\end_inset
+
+ would appear as 
+\begin_inset Formula $0.83\pm0.12$
+\end_inset
+
+, while 
+\begin_inset Formula $0.827\pm0.367$
+\end_inset
+
+ would turn into 
+\begin_inset Formula $0.8\pm0.4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Don't do this! Life for a physics student is hard enough already without
+ also having to cope with such a bizarre rounding rule.
+ For the purpose of your undergraduate career you should round the error
+ 
+\emph on
+up
+\emph default
+ to two significant digits and round (standard rounding) the central value
+ to a commensurate precision.
+ So in the two examples above you should report 
+\begin_inset Formula $0.83\pm0.12$
+\end_inset
+
+ and 
+\begin_inset Formula $0.83\pm0.37$
+\end_inset
+
+ respectively.
+ In my example you would quote 
+\begin_inset Formula $123.4568\pm0.0024$
+\end_inset
+
+.
+ Others will tell you to always round an error up to one significant figure
+ (so, e.g.
+ 
+\begin_inset Formula $\pm0.22$
+\end_inset
+
+ becomes 
+\begin_inset Formula $\pm0.3$
+\end_inset
+
+), but sometimes this gets rid of too much information.
+ For our purposes keeping two digits of the error is a fair compromise between
+ being ultra-conservative keeping one digit and keeping meaningless extra
+ digits, so long as you keep in mind that often the second digit of the
+ error is itself fairly flexible.
+ As I said, you almost never know more than two digits of the error, and
+ often you only know one digit.
+ If one of your instructors marks you down for keeping two digits of the
+ error send them this document.
+\end_layout
+
+\begin_layout Subsubsection*
+Summary
+\end_layout
+
+\begin_layout Itemize
+Absolute errors are a direct quoting of the error magnitude 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ and share the same units as the central value 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ E.g.
+ 
+\begin_inset Formula $25.00\pm0.05\ \mathrm{mA}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Relative errors are given as a fraction of the central value, i.e.
+ 
+\begin_inset Formula $\frac{\Delta x}{x}$
+\end_inset
+
+, usually quoted as a percentage.
+ E.g.
+ 
+\begin_inset Formula $\left(25.00\pm0.2\%\right)\ \mathrm{mA}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The notation 
+\begin_inset Formula $123.4\left(56\right)$
+\end_inset
+
+ means the same thing as the absolute error 
+\begin_inset Formula $123.4\pm5.6$
+\end_inset
+
+ is useful for expressing long numbers so long as it is not confused for
+ the multiplication 
+\begin_inset Formula $123.4\times56$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+There is no universal standard for rounding when quoting final results,
+ but a generally good system is to round errors 
+\emph on
+up
+\emph default
+ with two significant figures, and round central values in the usual way
+ to a precision commensurate with the error.
+ E.g.
+ 
+\begin_inset Formula $123.654\pm0.234$
+\end_inset
+
+ rounds to 
+\begin_inset Formula $123.65\pm0.24$
+\end_inset
+
+.
+ The second digit of the error is often only a rough figure.
+\end_layout
+
+\begin_layout Subsection
+Estimating Errors From Measurements
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Estimating-Errors-From-Measurements"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Estimating Errors From Fits by Eye
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Estimating-Errors-From-Fits-by-Eye"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1729,6 +2192,21 @@ name "sec:Advanced-Topics"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section*
+Contributors & Acknowledgements
+\end_layout
+
+\begin_layout Itemize
+Michael Brown (original author of this work): I would like to thank Prof.
+ Peter Ridd for teaching me error analysis in the first place, and also
+ the students at James Cook University for inspiring this work.
+ I always felt there was something weird going on with statistics, and I
+ became a fully convinced Bayesian the instant I learned there was such
+ a thing.
+ Many thanks for the writings of E.T.
+ Jaynes on the subject of Bayesian probability and maximum entropy methods.
 \end_layout
 
 \begin_layout Standard
@@ -1939,8 +2417,64 @@ target "http://profmattstrassler.com/articles-and-posts/particle-physics-basics/
 .
 \end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "6"
+key "PDG2012"
+
+\end_inset
+
+The Particle Data Group is the one stop repository for all things particle
+ physics.
+ A regularly maintained database is maintained on the web at 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://pdg.lbl.gov/"
+target "http://pdg.lbl.gov/"
+
+\end_inset
+
+.
+ The version of the 
+\emph on
+Review of Particle Physics
+\emph default
+ quoted here is an slightly older print edition: J.
+ Beringer et al.
+ (Particle Data Group), Phys.
+ Rev.
+ D 86, 010001 (2012).
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<- remove headers, footers and page numbers from cheat sheet
+\end_layout
+
 \end_inset
 
 
