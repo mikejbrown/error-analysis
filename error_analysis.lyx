@@ -31,7 +31,8 @@ customHeadersFooters
 
 \graphics default
 \default_output_format default
-\output_sync 0
+\output_sync 1
+\output_sync_macro "\synctex=1"
 \bibtex_command default
 \index_command default
 \paperfontsize default
@@ -2183,6 +2184,493 @@ name "sub:Estimating-Errors-From-Fits-by-Eye"
 
 \end_layout
 
+\begin_layout Subsection
+Linear Error Propagation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Linear-Error-Propagation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Often you can't directly measure the thing you are interested in.
+ Instead you compute it as a function of quantities you can measure.
+ But if you are uncertain about the value of some quantities 
+\begin_inset Formula $x,y,z,\cdots$
+\end_inset
+
+, then obviously you will also be uncertain about the value of a function
+ of them 
+\begin_inset Formula $f\left(x,y,z\right)$
+\end_inset
+
+.
+ How do you find out the uncertainty in 
+\begin_inset Formula $f$
+\end_inset
+
+? You might imagine the simplest thing to do is to sample the value of 
+\begin_inset Formula $f$
+\end_inset
+
+ at many different values of 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ which are compatible with your measurements.
+ This is in fact the Monte Carlo method that we will explore in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+.
+ It is a practical method if 
+\begin_inset Formula $f$
+\end_inset
+
+ is very complicated, or the number of variables is very large, or if their
+ uncertainties are correlated
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+E.g.
+ the uncertainties in the distance and intrinsic brightness of an astronomical
+ object are correlated because objects which are further away will appear
+ dimmer.
+ Try thinking up your own examples.
+\end_layout
+
+\end_inset
+
+, or 
+\begin_inset Formula $f$
+\end_inset
+
+ is not a very smooth function of its arguments.
+ The disadvantage is that you have to program a computer to do this for
+ you, or otherwise do a lot of work
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+There are also modelling issues: you have to choose so called 
+\begin_inset Quotes eld
+\end_inset
+
+prior probability distributions
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+likelihood functions
+\begin_inset Quotes erd
+\end_inset
+
+ to do the estimation properly.
+ There is an enormous literature on this subject which we only scratch the
+ surface of in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Since we are often interested in simple functions of only a few variables
+ we can use simple analytical rules to propagate uncertainties with pen
+ and paper instead.
+\end_layout
+
+\begin_layout Standard
+Here is the general rule you will use for any undergrad subject:
+\begin_inset Formula 
+\[
+\Delta f\left(x_{0},y_{0},z_{0},\cdots\right)=\left|\frac{\partial f}{\partial x}\right|_{x=x_{0},\cdots}\Delta x+\left|\frac{\partial f}{\partial y}\right|_{x=x_{0},\cdots}\Delta y+\left|\frac{\partial f}{\partial z}\right|_{x=x_{0},\cdots}\Delta z+\cdots,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left|\right|$
+\end_inset
+
+ means absolute value and the subscript 
+\begin_inset Formula $x=x_{0},\cdots$
+\end_inset
+
+ means to evaluate all the derivatives at the measured values 
+\begin_inset Formula $x_{0},y_{0},z_{0}\cdots$
+\end_inset
+
+.
+ There is a term in the sum for each variable the function depends on.
+ The absolute value sign is there so that each term contributes positively
+ to the final result: increasing the uncertainty of any variable should
+ always increase, and never decrease, the uncertainty of the function itself.
+ An important point here is that the errors in the different variables must
+ be uncorrelated.
+\end_layout
+
+\begin_layout Standard
+The justification for this rule is the Taylor series expansion for a function
+ of several variables (we'll drop the 
+\begin_inset Formula $z,\cdots$
+\end_inset
+
+ for brevity here, you can generalize this to any number of arguments):
+\begin_inset Formula 
+\begin{align*}
+f\left(x_{0}+\delta x,y_{0}+\delta y\right) & =f\left(x_{0},y_{0}\right)+\left.\frac{\partial f}{\partial x}\right|_{x=x_{0},\cdots}\delta x+\left.\frac{\partial f}{\partial y}\right|_{x=x_{0},\cdots}\delta y\\
+ & +\frac{1}{2}\left.\frac{\partial^{2}f}{\partial x^{2}}\right|_{x=x_{0},\cdots}\delta x^{2}+\left.\frac{\partial^{2}f}{\partial x\partial y}\right|_{x=x_{0},\cdots}\delta x\delta y\\
+ & +\frac{1}{2}\left.\frac{\partial^{2}f}{\partial y^{2}}\right|_{x=x_{0},\cdots}\delta y^{2}+\cdots,
+\end{align*}
+
+\end_inset
+
+You can see the similarity.
+ The main differences are that 
+\begin_inset Formula $\delta x,\delta y,\cdots$
+\end_inset
+
+ can have any sign while 
+\begin_inset Formula $\Delta x,\Delta y,\cdots$
+\end_inset
+
+ are always positive, so there are absolute value signs in the equation
+ for the error; and that in the error formula we have dropped second and
+ higher order terms in 
+\begin_inset Formula $\delta x,\delta y$
+\end_inset
+
+.
+ This is what we mean by 
+\emph on
+linear error propagation
+\emph default
+: we are essentially approximating a curved surface (the graph of the function
+ 
+\begin_inset Formula $f\left(x,y\right)$
+\end_inset
+
+) by a flat plane tangent to the surface at the measured point (c.f.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:uncertain-function"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+This works so long as all the higher order terms are much smaller than the
+ linear terms, e.g.
+\begin_inset Formula 
+\[
+\left|\frac{\partial^{2}f}{\partial x^{2}}\right|_{x=x_{0},\cdots}\Delta x^{2}\ll\left|\frac{\partial f}{\partial x}\right|_{x=x_{0},\cdots}\Delta x,
+\]
+
+\end_inset
+
+etc.
+ (All higher order terms have to be much smaller than all linear terms.)
+ This means the errors can't be too big:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta x\ll\frac{\left|\frac{\partial f}{\partial x}\right|_{x=x_{0},\cdots}}{\left|\frac{\partial^{2}f}{\partial x^{2}}\right|_{x=x_{0},\cdots}},\ \mathrm{etc.},
+\]
+
+\end_inset
+
+which is usually the case.
+ The most important case where linear error propagation fails is if the
+ measured value happens to be near a 
+\emph on
+maximum, minimum,
+\emph default
+ or 
+\emph on
+inflection point
+\emph default
+ of the function.
+ In that case linear error propagation 
+\emph on
+under-estimates
+\emph default
+ the error and you must use a non-linear error propagation technique which
+ takes curvature of the function into account.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/uncertain-function.png
+	width 90col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:uncertain-function"
+
+\end_inset
+
+Uncertainty in a non-linear function of two variables.
+ The blue uncertainty region shows the possible values of the measured variables
+ with the central value denoted by the point.
+ Linear error propagation approximates the blue region by the flat plane
+ tangent to the surface at the point.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is another, more subtle approximation at work in our error propagation
+ formula.
+ It is not one you should worry about for your labs, but you should be aware
+ of it.
+ It is actually a fairly subtle, but crucially important point that was
+ missed by many of the brightest minds for hundreds of years
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MOSTDANGEROUSEQ"
+
+\end_inset
+
+: in some cases our formula dramatically 
+\emph on
+over-estimates
+\emph default
+ the error.
+ This is a concern especially when you are averaging multiple repetitions
+ of a measurement to reduce the random error.
+ Before getting there we will first use our general formula to derive some
+ simple rules that will be very useful in practice.
+\end_layout
+
+\begin_layout Standard
+Suppose our function consists of multiplication by an exact constant (e.g.
+ 
+\begin_inset Formula $\mathrm{circumference}=2\pi\times\mathrm{radius}$
+\end_inset
+
+ where the radius is being measured): 
+\begin_inset Formula $f\left(x\right)=cx$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\partial f/\partial x=c$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta f=c\Delta x$
+\end_inset
+
+.
+ Convince yourself this should be obvious (you might think about unit conversion
+s).
+ What if we are adding two measured values together, i.e.
+ 
+\begin_inset Formula $f\left(x,y\right)=x+y$
+\end_inset
+
+? Then 
+\begin_inset Formula $\partial f/\partial x=1$
+\end_inset
+
+, 
+\begin_inset Formula $\partial f/\partial y=1$
+\end_inset
+
+ and 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\Delta f=\Delta x+\Delta y$
+\end_inset
+
+.
+ Again this should be fairly obvious.
+ Here we can see what happens if variables are correlated.
+ Suppose 
+\begin_inset Formula $y$
+\end_inset
+
+ is not really independent of 
+\begin_inset Formula $x$
+\end_inset
+
+, but instead 
+\begin_inset Formula $y=-x$
+\end_inset
+
+ exactly.
+ Then 
+\begin_inset Formula $f\left(x,y\right)=x+y=0$
+\end_inset
+
+ exactly, no matter how uncertain we are in our measurement of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ But linear error propagation would say 
+\begin_inset Formula $\Delta f=\Delta x+\Delta y=2\Delta x$
+\end_inset
+
+ (remember 
+\begin_inset Formula $\Delta x,\Delta y$
+\end_inset
+
+ are always positive!).
+ So in the case of perfect (anti)correlation our formula over-estimates
+ the error.
+ These situations are fairly rare, and they can be handled on a case by
+ case basis.
+ This is not the problem I alluded to before.
+\end_layout
+
+\begin_layout Standard
+Remember how I said that the error in an average of 
+\begin_inset Formula $N$
+\end_inset
+
+ independent repeat observations with uncertainty 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ is 
+\begin_inset Formula $\Delta x/\sqrt{N}$
+\end_inset
+
+? Let's see what the linear error propagation rule says:
+\end_layout
+
+\begin_layout Exercise
+Consider weighted averaging of repeated measurements 
+\begin_inset Formula $x_{1},\cdots,x_{N}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+f\left(x_{1},\cdots,x_{N}\right)=\sum_{i=1}^{N}w_{i}x_{i},
+\]
+
+\end_inset
+
+where the weights obey
+\begin_inset Formula 
+\[
+\sum_{i=1}^{N}w_{i}=1,
+\]
+
+\end_inset
+
+and the individual measurements have different errors 
+\begin_inset Formula $\Delta x_{i}$
+\end_inset
+
+.
+ Prove that using our linear error propagation rule the minimum 
+\begin_inset Formula $\Delta f$
+\end_inset
+
+ is always obtained for 
+\begin_inset Formula $w_{\hat{i}}=1$
+\end_inset
+
+ where 
+\begin_inset Formula $\hat{i}$
+\end_inset
+
+ denotes the observation with the minimum uncertainty and all other 
+\begin_inset Formula $w_{j}=0$
+\end_inset
+
+, 
+\begin_inset Formula $j\neq\hat{i}$
+\end_inset
+
+.
+ Note that if the best two (or more) observations have the same error there
+ is no unique solution for minimum error.
+\end_layout
+
+\begin_layout Standard
+This means that the best strategy under linear error propagation is to take
+ the single best observation and ignore all the rest.
+ Not averaging! This is exactly what people did for many years before probabilit
+y theory was better understood, but now it is known that averaging is actually
+ better, and there is a subtle mistake in the linear error propagation formula.
+ The problem is that independent errors actually tend to wash each other
+ out more so than our error formula suggests.
+ This is especially important when a large number of samples are being averaged.
+ It is not so important when you only have a few variables.
+ The correct formula will be derived in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+, but here I'll just quote it, which should be reason enough to explain
+ why I don't want you to worry about it except in the simple 
+\begin_inset Formula $\Delta x/\sqrt{N}$
+\end_inset
+
+ case for averages:
+\begin_inset Formula 
+\[
+\Delta f\left(x_{0},y_{0},\cdots\right)=\sqrt{\left(\left|\frac{\partial f}{\partial x}\right|_{x=x_{0},\cdots}\Delta x\right)^{2}+\left(\left|\frac{\partial f}{\partial y}\right|_{x=x_{0},\cdots}\Delta y\right)^{2}+\cdots}.
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Advanced Topics
 \begin_inset CommandInset label
@@ -2445,6 +2933,28 @@ Review of Particle Physics
  (Particle Data Group), Phys.
  Rev.
  D 86, 010001 (2012).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "7"
+key "MOSTDANGEROUSEQ"
+
+\end_inset
+
+H.
+ Wainer, The Most Dangerous Equation.
+ Am.
+ Sci.
+ 95, 249 (2007) 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.americanscientist.org/issues/feature/the-most-dangerous-equation"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
