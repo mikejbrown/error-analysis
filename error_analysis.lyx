@@ -5,6 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{braket}
+\usepackage{changepage}
 \end_preamble
 \options sort&compress
 \use_default_options true
@@ -199,7 +200,7 @@ thepage
 status open
 
 \begin_layout Plain Layout
-Copyright © 2014 Michael J.
+© 2014 Michael J.
  Brown 
 \begin_inset Graphics
 	filename cc-by-sa.eps
@@ -212,7 +213,7 @@ Copyright © 2014 Michael J.
 
 \end_inset
 
-Copyright © 2014 Michael J.
+© 2014 Michael J.
  Brown 
 \begin_inset Graphics
 	filename cc-by-sa.eps
@@ -1248,6 +1249,23 @@ in tension
 .
 \end_layout
 
+\begin_layout Exercise
+Think of other scenarios where the uncertainty in a result or prediction
+ is at least as important as the central value itself.
+ (This is obviously somewhat subjective, with no single right answer.
+ Don't worry.)
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+The actual history of a scientific discovery is rarely as straightforward
+ as the textbook description of it.
+ Pick an episode in the history of science where a discovery was made and
+ do your own research into how it came about.
+ What role did experimental error/uncertainty play?
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Precision and Accuracy, Types of Errors
 \begin_inset CommandInset label
@@ -1790,9 +1808,64 @@ l formulae involving the things you immediately measure, and only substitute
 \begin_inset Formula $12500-12500=0$
 \end_inset
 
-!
+! If you take basic precautions such as these, rounding error should be
+ such a small part of your final uncertainties that we will not worry about
+ how to estimate it.
 \end_layout
 
+\begin_layout Exercise
+Think of other sources of random and systematic errors (feel free to think
+ outside of physics).
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+What experimental factors could lead to asymmetric error bars?
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Suppose you want to know how often students cheat on exams.
+ You conduct a survey of 100 students and, surprise, none of them admit
+ to cheating.
+ Do you think this study is dominated by statistical or systematic uncertainty
+ and why?
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Suppose you read an article on study design and you try a new method to
+ get the truth out of cheating students: you give each student a coin and
+ ask them to flip it out of your sight.
+ You instruct them to tell the truth if the coin lands 
+\begin_inset Quotes eld
+\end_inset
+
+heads,
+\begin_inset Quotes erd
+\end_inset
+
+ but to say they cheated if it lands 
+\begin_inset Quotes eld
+\end_inset
+
+tails
+\begin_inset Quotes erd
+\end_inset
+
+ (regardless of their actual behaviour).
+ Thus for any given student who says they cheated, you cannot know if it
+ is because they were honest or because of the coin toss, yet you expect
+ you can subtract the known statistical trend (50% head/50% tails) from
+ the long run averages and get at the truth.
+ What are the statistical and systematic errors in the new study design?
+ What would be necessary for this design to be an improvement over the last
+ one?
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
 \begin_layout Subsubsection*
 Summary
 \end_layout
@@ -2087,6 +2160,95 @@ up
  error send them this document.
 \end_layout
 
+\begin_layout Exercise
+Is 
+\begin_inset Formula $3.5\pm0.2\ \mathrm{m}$
+\end_inset
+
+ an absolute or relative error? Convert it to the other type.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ANS: Absolute, 
+\begin_inset Formula $5.7\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Which measurement has the larger 
+\emph on
+absolute
+\emph default
+ error, 
+\begin_inset Formula $11.4\pm25\%$
+\end_inset
+
+ or 
+\begin_inset Formula $97\pm3\%$
+\end_inset
+
+?
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm2.85$
+\end_inset
+
+ vs.
+ 
+\begin_inset Formula $\pm2.91$
+\end_inset
+
+, so the second
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Round 
+\begin_inset Formula $549.57690234\pm5.65444241$
+\end_inset
+
+ and 
+\begin_inset Formula $915.96198715\pm0.42174744$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $549.6\pm5.7$
+\end_inset
+
+ and 
+\begin_inset Formula $915.96\pm0.42$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Subsubsection*
 Summary
 \end_layout
@@ -2133,8 +2295,8 @@ The notation
 \begin_inset Formula $123.4\pm5.6$
 \end_inset
 
- is useful for expressing long numbers so long as it is not confused for
- the multiplication 
+ and is useful for expressing long numbers, so long as it is not confused
+ for the multiplication 
 \begin_inset Formula $123.4\times56$
 \end_inset
 
@@ -2464,8 +2626,7 @@ Uncertainty in a non-linear function of two variables.
 \end_layout
 
 \begin_layout Standard
-There is another, more subtle approximation at work in our error propagation
- formula.
+There is another, more subtle issue at work in our error propagation formula.
  It is not one you should worry about for your labs, but you should be aware
  of it.
  It is actually a fairly subtle, but crucially important point that was
@@ -2644,19 +2805,33 @@ This means that the best strategy under linear error propagation is to take
  Not averaging! This is exactly what people did for many years before probabilit
 y theory was better understood, but now it is known that averaging is actually
  better, and there is a subtle mistake in the linear error propagation formula.
- The problem is that independent errors actually tend to wash each other
- out more so than our error formula suggests.
+ The problem is that there is still useful information contained in the
+ less certain measurements that linear error propagation is leading us to
+ throw away.
+ Independent errors actually tend to wash each other out more so than our
+ error formula suggests.
  This is especially important when a large number of samples are being averaged.
- It is not so important when you only have a few variables.
- The correct formula will be derived in Section 
+ The completely general and correct method for updating our uncertainties
+ in light of new information will be discussed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Advanced-Topics"
 
 \end_inset
 
-, but here I'll just quote it, which should be reason enough to explain
- why I don't want you to worry about it except in the simple 
+.
+ Here I will just quote the correct version of our error propagation formula
+ (which we will call the 
+\begin_inset Quotes eld
+\end_inset
+
+quadrature
+\begin_inset Quotes erd
+\end_inset
+
+ formula), still assuming uncorrelated and small errors, which should be
+ reason enough to explain why I don't want you to worry about it except
+ in the simple 
 \begin_inset Formula $\Delta x/\sqrt{N}$
 \end_inset
 
@@ -2671,6 +2846,394 @@ reference "sec:Advanced-Topics"
 
 \end_layout
 
+\begin_layout Exercise
+Derive the 
+\begin_inset Formula $\Delta\bar{x}=\Delta x/\sqrt{N}$
+\end_inset
+
+ rule for averages from this formula.
+ (Hint: 
+\begin_inset Formula $f=\bar{x}=\sum_{i=1}^{N}x_{i}/N$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+How can we have two different rules for error propagation? The two rules
+ are actually computing 
+\emph on
+two different things
+\emph default
+ that we have so far been using the same word for (
+\begin_inset Quotes eld
+\end_inset
+
+error
+\begin_inset Quotes erd
+\end_inset
+
+).
+ A short exercise should illustrate what is going on:
+\end_layout
+
+\begin_layout Exercise
+Take 
+\begin_inset Formula $f\left(x,y\right)=x+y$
+\end_inset
+
+ with 
+\begin_inset Formula $x=10\pm3$
+\end_inset
+
+ and 
+\begin_inset Formula $y=20\pm4$
+\end_inset
+
+.
+ Compute 
+\begin_inset Formula $f\pm\Delta f$
+\end_inset
+
+ using both linear error propagation and quadrature.
+ Which is larger and by how much?
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+linear: 
+\begin_inset Formula $30\pm7$
+\end_inset
+
+, quadrature: 
+\begin_inset Formula $30\pm5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is clear where the difference is coming from in this exercise.
+ Linear error propagation is computing 
+\emph on
+the range over which 
+\begin_inset Formula $f$
+\end_inset
+
+ can vary
+\emph default
+ for 
+\begin_inset Formula $x,y$
+\end_inset
+
+ consistent with the measured values.
+ If 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ both err upwards then 
+\begin_inset Formula $f\left(x+\Delta x,y+\Delta y\right)=\left(10+3\right)+\left(20+4\right)=30+7$
+\end_inset
+
+ and similarly 
+\begin_inset Formula $f\left(x-\Delta x,y-\Delta y\right)=30-7$
+\end_inset
+
+.
+ So the range of possible 
+\begin_inset Formula $f$
+\end_inset
+
+ values is 
+\begin_inset Formula $30\pm7$
+\end_inset
+
+ and this is exactly what you compute with linear error propagation.
+\end_layout
+
+\begin_layout Standard
+On the other hand, quadrature is computing the 
+\emph on
+range of likely values of 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+ (for some definition of 
+\begin_inset Quotes eld
+\end_inset
+
+likely
+\begin_inset Quotes erd
+\end_inset
+
+ that we will say much more about in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+).
+ If 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ are independent then upward fluctuations of 
+\begin_inset Formula $x$
+\end_inset
+
+ are just as likely to occur with 
+\emph on
+downward
+\emph default
+ fluctuations of 
+\begin_inset Formula $y$
+\end_inset
+
+ and vice versa.
+ So while 
+\begin_inset Formula $f$
+\end_inset
+
+ 
+\emph on
+could be
+\emph default
+ as large as 
+\begin_inset Formula $37$
+\end_inset
+
+ or small as 
+\begin_inset Formula $23$
+\end_inset
+
+, it is 
+\emph on
+more likely
+\emph default
+ to be closer to 
+\begin_inset Formula $30$
+\end_inset
+
+ than either extreme, since the fluctuations in 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ will often cancel out.
+ We will see in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+ not only how you can compute a summary statistic (
+\begin_inset Formula $\Delta f$
+\end_inset
+
+) but also the actual 
+\emph on
+probability distribution
+\emph default
+ for 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ (Needless to say, you will not need all this machinery for your lab reports,
+ although if you read an experimental paper in astronomy or particle physics
+ you are likely to see a great deal of this sort of probability analysis.)
+\end_layout
+
+\begin_layout Standard
+This issue is particularly acute in the case where you have many variables,
+ such as an average.
+ Suppose you are averaging 
+\begin_inset Formula $1000$
+\end_inset
+
+ independent measurements.
+ The chance of 
+\emph on
+all 
+\begin_inset Formula $1000$
+\end_inset
+
+ of them
+\emph default
+ having a fluctuation in the same direction is miniscule.
+ It is far more likely for roughly 
+\begin_inset Formula $500$
+\end_inset
+
+ to fluctuate upwards, roughly 
+\begin_inset Formula $500$
+\end_inset
+
+ to fluctuate downwards, and the errors are likely to wash out.
+ The quadrature formula accounts for this.
+ The linear error propagation formula does not: it tells you that, no matter
+ how unlikely the event, 
+\emph on
+all
+\emph default
+ 
+\begin_inset Formula $1000$
+\end_inset
+
+ measurements 
+\emph on
+could
+\emph default
+ fluctuate in the same direction yielding a much larger error estimate.
+\end_layout
+
+\begin_layout Standard
+Now that I have confused you with this long discussion of two distinct error
+ propagation formulas, I will try to make up for it by giving a practical
+ recipe.
+ Now that you understand the general issue, and you are aware that the machinery
+ discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+ automatically handles all cases correctly, in complete generality, you
+ can understand that the simple recipe I give in this section is not iron
+ clad.
+ It is more of a useful rule of thumb.
+ But it is useful.
+ Here it is:
+\end_layout
+
+\begin_layout Itemize
+If the function you are calculating involves no more than ten (10) distinct
+ variables, and you believe the errors are uncorrelated and relatively small
+ (justifying a Taylor series expansion of the function) use linear error
+ propagation.
+\end_layout
+
+\begin_layout Itemize
+If the function is an average of ten or more independent measurements of
+ the same thing then use quadrature (
+\begin_inset Formula $\Delta x/\sqrt{N}$
+\end_inset
+
+) for the average.
+\end_layout
+
+\begin_layout Itemize
+If the function involves ten or more distinct physical quantities, is highly
+ nonlinear, or the errors are strongly correlated, your problem is complicated
+ enough to need some special treatment using statistical methods.
+\end_layout
+
+\begin_layout Standard
+There are some other linear error propagation recipes that you should derive
+ as exercises.
+\end_layout
+
+\begin_layout Exercise
+Find the error in a product, 
+\begin_inset Formula $f\left(x,y,z,\cdots\right)=xyz\cdots$
+\end_inset
+
+, using linear error propagation.
+ You should find
+\begin_inset Formula 
+\[
+\frac{\Delta\left(xyz\cdots\right)}{\left|xyz\cdots\right|}=\frac{\Delta x}{\left|x\right|}+\frac{\Delta y}{\left|y\right|}+\frac{\Delta z}{\left|z\right|}+\cdots.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Find the error in a power 
+\begin_inset Formula $f\left(x\right)=x^{n}$
+\end_inset
+
+, using linear error propagation.
+ You should find
+\begin_inset Formula 
+\[
+\frac{\Delta\left(x^{n}\right)}{\left|x^{n}\right|}=\left|n\frac{\Delta x}{x}\right|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Find the error in the reciprocal, 
+\begin_inset Formula $f\left(x\right)=1/x$
+\end_inset
+
+, using linear error propagation.
+ You should find
+\begin_inset Formula 
+\[
+\Delta\left(\frac{1}{x}\right)=\frac{\Delta x}{x^{2}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Hence, find the error in the quotient, 
+\begin_inset Formula $f\left(x,y\right)=x/y$
+\end_inset
+
+ using linear error propagation.
+ You should find
+\begin_inset Formula 
+\[
+\frac{\Delta\left(x/y\right)}{\left|x/y\right|}=\frac{\Delta x}{\left|x\right|}+\frac{\Delta y}{\left|y\right|}.
+\]
+
+\end_inset
+
+Note that this is the same as for multiplication.
+\end_layout
+
+\begin_deeper
+\begin_layout Exercise
+Find a table of functions and compute the errors for each of them.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
 \begin_layout Section
 Advanced Topics
 \begin_inset CommandInset label
@@ -2990,11 +3553,373 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustwidth*}{-3cm}{-4cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<- push out margins on this page only
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Error Analysis Cheat Sheet
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Cheat-Sheet"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+A MEASUREMENT WITHOUT ERROR BARS IS MEANINGLESS!
+\end_layout
+
+\begin_layout Description
+Error
+\begin_inset space ~
+\end_inset
+
+analysis means quantifying the uncertainty in a measurement/prediction,
+ 
+\emph on
+not
+\emph default
+ comparing a measurement to a previously accepted value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Formula $x\pm\Delta x$
+\end_inset
+
+ means that the true value of 
+\begin_inset Formula $x$
+\end_inset
+
+ is likely to lie between 
+\begin_inset Formula $x-\Delta x$
+\end_inset
+
+ and 
+\begin_inset Formula $x+\Delta x$
+\end_inset
+
+ (c.f.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+ for what precisely 
+\begin_inset Quotes eld
+\end_inset
+
+likely
+\begin_inset Quotes erd
+\end_inset
+
+ means).
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Systematic
+\begin_inset space ~
+\end_inset
+
+error: unaccounted for environmental conditions, improper calibration, etc.
+\end_layout
+
+\begin_layout Description
+Random
+\begin_inset space ~
+\end_inset
+
+(statistical)
+\begin_inset space ~
+\end_inset
+
+error: unpredictable and uncontrollable influences on the experiment.
+\end_layout
+
+\begin_layout Description
+Accuracy: tendency for 
+\begin_inset Formula $N$
+\end_inset
+
+ repeated measurements to average to the true value as 
+\begin_inset Formula $N\to\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Precision: tendency for repeated measurements to all be near the same value
+\end_layout
+
+\begin_layout Description
+Absolute
+\begin_inset space ~
+\end_inset
+
+error: the 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ in 
+\begin_inset Formula $x\pm\Delta x$
+\end_inset
+
+, always has the same units as 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Relative
+\begin_inset space ~
+\end_inset
+
+error: 
+\begin_inset Formula $\Delta x/x$
+\end_inset
+
+ quoted as a percentage (
+\begin_inset Formula $x\pm\left(100\times\frac{\Delta x}{x}\right)\%$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+General lab advice: your systematic errors are probably more important than
+ your random errors, and probably larger than you think.
+ Work hard on your systematics.
+ Try to understand the physics of the lab as much as possible, especially
+ how and why things could go wrong.
+ Get your hands dirty.
+ And have fun!
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+General linear error propagation formula (c.f.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Linear-Error-Propagation"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta f\left(x_{0},y_{0},z_{0},\cdots\right)=\left|\frac{\partial f}{\partial x}\right|_{x=x_{0},\cdots}\Delta x+\left|\frac{\partial f}{\partial y}\right|_{x=x_{0},\cdots}\Delta y+\left|\frac{\partial f}{\partial z}\right|_{x=x_{0},\cdots}\Delta z+\cdots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Derived formulas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Delta\left(x+y+z+\cdots\right) & =\Delta x+\Delta y+\Delta z+\cdots\\
+\Delta\left(cx\right) & =\left|c\right|\Delta x,\ c=\mathrm{known\ constant}\\
+\frac{\Delta\left(xyz\right)}{\left|xyz\right|} & =\frac{\Delta x}{\left|x\right|}+\frac{\Delta y}{\left|y\right|}+\frac{\Delta z}{\left|z\right|}\\
+\frac{\Delta\left(x^{n}\right)}{\left|x^{n}\right|} & =\left|n\frac{\Delta x}{x}\right|\\
+\frac{\Delta\left(x/y\right)}{\left|x/y\right|} & =\frac{\Delta x}{\left|x\right|}+\frac{\Delta y}{\left|y\right|}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Averaging 
+\begin_inset Formula $N\ge10$
+\end_inset
+
+ independent repeated measurements 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ with equal errors 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\bar{x}\pm\Delta\bar{x}=\left(\sum_{i=1}^{N}\frac{x_{i}}{N}\right)\pm\frac{\Delta x}{\sqrt{N}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+DO NOT ROUND INTERMEDIATE RESULTS!
+\end_layout
+
+\begin_layout Standard
+Round errors 
+\emph on
+up
+\emph default
+ to two significant digits (eg.
+ 
+\begin_inset Formula $\pm28.1$
+\end_inset
+
+ rounds up to 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\pm29$
+\end_inset
+
+).
+ Round central values to a precision commensurate with the error, using
+ standard rounding (
+\begin_inset Formula $.5$
+\end_inset
+
+ to 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $.49$
+\end_inset
+
+ to 
+\begin_inset Formula $0$
+\end_inset
+
+).
+ Thus 
+\begin_inset Formula $123.45678901\pm0.00234567\to123.4568\pm0.0024$
+\end_inset
+
+.
+ Equivalent ways to quote this value are 
+\begin_inset Formula $123.4568\left(24\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $123.4568\pm0.002\%$
+\end_inset
+
+.
+ (c.f.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Absolute-and-Relative-Errors"
+
+\end_inset
+
+ for discussion of rounding & quoting errors)
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Better (Bayesian) methods exist for general uncertainty analysis, should
+ you need them.
+ (c.f.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustwidth*}
+\end_layout
 
 \end_inset
 
