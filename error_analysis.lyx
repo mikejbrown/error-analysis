@@ -2423,6 +2423,470 @@ name "sub:Estimating-Errors-From-Fits-by-Eye"
 
 \end_layout
 
+\begin_layout Standard
+Often you want to estimate the slope and/or intercept of a linear relationship
+ between two variables.
+ We will only consider linear relationships in this section.
+ If you are interested in fitting a non-linear relationship then you can
+ either linearise it using some methods we will discuss shortly, or resort
+ to more advanced statistical techniques that are not covered here.
+\end_layout
+
+\begin_layout Standard
+Suppose you have two variables 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+, which you suppose are related by 
+\begin_inset Formula $y=mx+b$
+\end_inset
+
+: a linear relationship with slope 
+\begin_inset Formula $m$
+\end_inset
+
+ and intercept 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ You measure a set of 
+\begin_inset Formula $x$
+\end_inset
+
+ values 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\cdots,N$
+\end_inset
+
+, and corresponding 
+\begin_inset Formula $y$
+\end_inset
+
+ values 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+.
+ Both sets of measurements have corresponding uncertainties 
+\begin_inset Formula $\Delta x_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta y_{i}$
+\end_inset
+
+.
+ What can you infer from this about 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ and, importantly, 
+\begin_inset Formula $\Delta m$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta b$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+There are mathematical and graphical ways of handling this.
+ We will leave the discussion of the mathematical methods to Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Advanced-Topics"
+
+\end_inset
+
+, except to note in passing that linear regression (a.k.a.
+ least squares regression), which is widely available in many software packages
+ such as Excel, PASW, and programming libraries such as LAPACK (Fortran),
+ GSL (C/C++) and NumPy (Python), is very often the 
+\emph on
+wrong
+\emph default
+ tool for the job.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HOGG"
+
+\end_inset
+
+ for an excellent discussion and tutorial about practical mathematical fitting
+ methods for real world data.
+\end_layout
+
+\begin_layout Standard
+That said, we will focus on the graphical method.
+ Fitting data by eye is necessarily a subjective procedure, but the very
+ subjectivity of it allows an easy (though subjective!) estimate of the
+ uncertainties.
+ An obvious shortcoming of the method is that we are limited to a relationship
+ between two variables (the mathematical methods can be easily extended
+ to many thousands of variables).
+ So let's start with some data.
+ The data is shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sample-data-for-linear-fitting"
+
+\end_inset
+
+.
+ This 
+\begin_inset Quotes eld
+\end_inset
+
+data
+\begin_inset Quotes erd
+\end_inset
+
+ was randomly generated with 
+\begin_inset Formula $m=1$
+\end_inset
+
+ and 
+\begin_inset Formula $b=0$
+\end_inset
+
+ and added in noise with 
+\begin_inset Formula $\Delta x=0.1$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta y=1.0$
+\end_inset
+
+.
+ So we 
+\emph on
+know
+\emph default
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+truth
+\begin_inset Quotes erd
+\end_inset
+
+ in this case.
+ Generating synthetic data sets like this is often a useful way to develop
+ your analysis methods before applying them to real data.
+ For example, cosmologists working on the Planck satellite project to measure
+ the cosmic microwave background developed their analysis on fake data (while
+ the real data was kept hidden, or 
+\begin_inset Quotes eld
+\end_inset
+
+blinded
+\begin_inset Quotes erd
+\end_inset
+
+) so that any features in the real data would not bias the methods used,
+ and so cast doubt on the results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sample-data-for-linear-fitting"
+
+\end_inset
+
+Sample data for linear fitting discussion.
+ Generated from 
+\begin_inset Formula $y=x$
+\end_inset
+
+ with added Gaussian noise with 
+\begin_inset Formula $\Delta x=0.1$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta y=1.0$
+\end_inset
+
+ (
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ error bars).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.27
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.81
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Linear Error Propagation
 \begin_inset CommandInset label
@@ -3731,6 +4195,27 @@ Review of Particle Physics
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "7"
+key "HOGG"
+
+\end_inset
+
+D.
+ W.
+ Hogg et al., Data Analysis Recipes: Fitting a Model to Data.
+ (2010) 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://arxiv.org/abs/1008.4686"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "8"
 key "MOSTDANGEROUSEQ"
 
 \end_inset
