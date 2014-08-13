@@ -97,7 +97,7 @@ def lnprior(theta):
     xt = theta[4:]
     # Note that the non-informative prior in m is pi(m) = 0.5 * (1+m**2)^(-3/2)
     # The priors for sigmax and sigmay are uniform over a range
-    if (-100 < b < 100 and 0.08 < sigmax < 0.12 and 0 < sigmay < 2 and
+    if (-100 < b < 100 and 0.095 < sigmax < 0.105 and 0.5 < sigmay < 1.5 and
             min(xt) > -100 and max(xt) < 100):
         return -1.5 * np.log(1. + m ** 2.)
     return -np.inf
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     np.random.seed(42)  # reproducibility
     (xsigma, ysigma) = (0.1, 1.2)  # true values
-    xs, ys = gendata(n=10, xsigma=xsigma, ysigma=ysigma)
+    xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma)
     (fitm, fitb) = lstsqfit(xs, ys)
 
     print "Data"
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     ndim = len(t)
     nwalkers = 3 * ndim
     burnin = 200
-    nsteps = 10000
+    nsteps = 20000
     # starting points for walkers in a small ball around our initial guess
     pos = [t + 1e-4 * np.random.randn(ndim) for i in range(nwalkers)]
 
