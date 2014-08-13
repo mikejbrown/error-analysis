@@ -7,7 +7,7 @@ Created on Tue Jul 29 15:57:06 2014
 
 import numpy as np
 import emcee as mc
-import matplotlib.pyplot as py
+import matplotlib.pyplot as plt
 
 
 def gendata(n=20, xmin=0., xmax=10., m=1., b=0., xsigma=1.0, ysigma=1.0):
@@ -97,7 +97,7 @@ def lnprior(theta):
     xt = theta[4:]
     # Note that the non-informative prior in m is pi(m) = 0.5 * (1+m**2)^(-3/2)
     # The priors for sigmax and sigmay are uniform over a range
-    if (-100 < b < 100 and 0.06 < sigmax < 0.14 and 0 < sigmay < 3 and
+    if (-100 < b < 100 and 0.08 < sigmax < 0.12 and 0 < sigmay < 2 and
             min(xt) > -100 and max(xt) < 100):
         return -1.5 * np.log(1. + m ** 2.)
     return -np.inf
@@ -132,10 +132,10 @@ if __name__ == "__main__":
     (fitm, fitb) = lstsqfit(xs, ys)
 
     print "Data"
-    print "x\t y"
-    print "----------"
+    print "    x\t    y"
+    print "-------------"
     for i in xrange(len(xs)):
-        print xs[i],"\t",ys[i]
+        print "% 4.2f\t% 5.1f" % (xs[i], ys[i])
     print
 
     # initial guess for MCMC parameters
@@ -161,17 +161,17 @@ if __name__ == "__main__":
     print "Finished. Took %f seconds." % (stop - start)
 
 #%% Plotting - (spyder cell magic)
-    py.errorbar(xs, ys, yerr=ysigma, xerr=xsigma, fmt='k.')
-    py.plot(xs, fitm*xs + fitb, 'b-')
+    plt.errorbar(xs, ys, yerr=ysigma, xerr=xsigma, fmt='k.')
+    plt.plot(xs, fitm*xs + fitb, 'b-')
     lines = samples[np.random.random_integers(0, len(samples) - 1, 50), :2]
     for (m, b) in lines:
-        py.plot(xs, m * xs + b, 'k-', alpha=0.1)
-    py.axis([min(xs)-1, max(xs)+1, min(ys)-1, max(ys)+1])
+        plt.plot(xs, m * xs + b, 'k-', alpha=0.1)
+    plt.axis([min(xs)-1, max(xs)+1, min(ys)-1, max(ys)+1])
     (mmin, bmin) = samples[samples[:, 0] == np.min(samples[:, 0])][0, :2]
     (mmax, bmax) = samples[samples[:, 0] == np.max(samples[:, 0])][0, :2]
-    py.plot(xs, mmin * xs + bmin, 'g:', xs, mmax * xs + bmax, 'g:')
-    py.plot(xs, 1.0 * xs + 0., 'r-')
-    py.show()
+    plt.plot(xs, mmin * xs + bmin, 'g:', xs, mmax * xs + bmax, 'g:')
+    plt.plot(xs, 1.0 * xs + 0., 'r-')
+    plt.show()
 
     import triangle
     fig = triangle.corner(samples[:, :4],

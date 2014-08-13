@@ -2565,7 +2565,7 @@ data
 \end_inset
 
  and added in noise with 
-\begin_inset Formula $\Delta x=0.1$
+\begin_inset Formula $\Delta x=0.10$
 \end_inset
 
  and 
@@ -2624,7 +2624,7 @@ Sample data for linear fitting discussion.
 \end_inset
 
  with added Gaussian noise with 
-\begin_inset Formula $\Delta x=0.1$
+\begin_inset Formula $\Delta x=0.10$
 \end_inset
 
  and 
@@ -2709,7 +2709,7 @@ Sample data for linear fitting discussion.
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.0
+0.9
 \end_layout
 
 \end_inset
