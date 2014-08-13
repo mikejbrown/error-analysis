@@ -1430,8 +1430,8 @@ tal physics.
 \begin_layout Standard
 The parable tells of a man who wanted to measure the height of the emperor
  of China.
- So he travelled through China asking each person what they though the height
- of the emperor was.
+ So he travelled through China asking each person what they thought the
+ height of the emperor was.
  We suppose they all know the height of the emperor to a precision of at
  least 
 \begin_inset Formula $\Delta x=\pm1\ \mathrm{m}$
@@ -1803,9 +1803,9 @@ Rounding error
  final stage of reporting your results.
  Even better is to organise your calculations such that the minimum number
  of steps is required.
- For example, derive as many the quantities of interest as possible as analytica
-l formulae involving the things you immediately measure, and only substitute
- in the numerical values at the last stage.
+ For example, derive as many of the quantities of interest as possible as
+ analytical formulae involving the things you immediately measure, and only
+ substitute in the numerical values at the last stage.
  There are other tricks for organising your algebra.
  For example, if you need to compute a third order polynomial function 
 \begin_inset Formula $f\left(x\right)=a+bx+cx^{2}+dx^{3}$
