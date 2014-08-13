@@ -2888,8 +2888,9 @@ and the individual measurements have different errors
 \end_inset
 
 .
- Note that if the best two (or more) observations have the same error there
- is no unique solution for minimum error.
+ (Hint: you may start from this solution and show that no change to it can
+ decrease the error.) Note that if the best two (or more) observations have
+ the same error there is no unique solution for minimum error.
 \begin_inset Newline newline
 \end_inset
 
@@ -3001,8 +3002,8 @@ Lagrange multipliers
 \begin_inset Formula $-$
 \end_inset
 
- a technique which is useful in many other circumstances as well.) You should
- find the optimum weights are 
+ a calculus technique which is useful in many other circumstances as well.)
+ You should find the optimum weights are 
 \begin_inset Formula $w_{i}=\left(\Delta x_{i}\right)^{-2}\left[\sum_{j=1}^{N}\left(\Delta x_{j}\right)^{-2}\right]^{-1}$
 \end_inset
 
@@ -3282,7 +3283,7 @@ all
 
  of them
 \emph default
- having a fluctuation in the same direction is miniscule.
+ having a fluctuation in the same direction is minuscule.
  It is far more likely for roughly 
 \begin_inset Formula $500$
 \end_inset
@@ -3324,20 +3325,20 @@ reference "sec:Advanced-Topics"
  automatically handles all cases correctly, in complete generality, you
  can understand that the simple recipe I give in this section is not iron
  clad.
- It is more of a useful rule of thumb.
- But it is useful.
+ It is more of a useful rule of thumb that makes sure linear error propagation
+ should cover most every case in your labs.
  Here it is:
 \end_layout
 
 \begin_layout Itemize
-If the function you are calculating involves no more than ten (10) distinct
+If the function you are calculating involves no more than five (5) distinct
  variables, and you believe the errors are uncorrelated and relatively small
  (justifying a Taylor series expansion of the function) use linear error
  propagation.
 \end_layout
 
 \begin_layout Itemize
-If the function is an average of ten or more independent measurements of
+If the function is an average of five or more independent measurements of
  the same thing then use quadrature (
 \begin_inset Formula $\Delta x/\sqrt{N}$
 \end_inset
@@ -3346,9 +3347,9 @@ If the function is an average of ten or more independent measurements of
 \end_layout
 
 \begin_layout Itemize
-If the function involves ten or more distinct physical quantities, is highly
- nonlinear, or the errors are strongly correlated, your problem is complicated
- enough to need some special treatment using statistical methods.
+If the function involves five or more distinct physical quantities, is highly
+ nonlinear, or the errors are strongly correlated, your problem is probably
+ complicated enough to need some special treatment using statistical methods.
 \end_layout
 
 \begin_layout Standard
