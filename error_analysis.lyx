@@ -4039,7 +4039,7 @@ target "http://www.minorplanetcenter.net"
 
 \end_inset
 
-), both of which make their data publically available.
+), both of which make their data publicly available.
  The Palermo scale incorporates impact probability and the background risk
  to assess the hazard of a given PHA (
 \begin_inset CommandInset href
@@ -4547,7 +4547,7 @@ Round errors
 \emph on
 up
 \emph default
- to two significant digits (eg.
+ to two significant digits (e.g.
  
 \begin_inset Formula $\pm28.1$
 \end_inset
