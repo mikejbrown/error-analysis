@@ -137,8 +137,10 @@ if __name__ == "__main__":
     for i in xrange(len(xs)):
         print "% 4.2f\t% 5.1f" % (xs[i], ys[i])
     print
+    print "Least squares fit: m=%f b=%f" % (fitm, fitb)
 
     # initial guess for MCMC parameters
+    # [m, b, xsigma, ysigma]
     t = [1., 0., xsigma, ysigma]
     t.extend(xs)
 
@@ -161,6 +163,19 @@ if __name__ == "__main__":
     print "Finished. Took %f seconds." % (stop - start)
 
 #%% Plotting - (spyder cell magic)
+    with plt.xkcd(scale=0.5):
+        plt.figure()
+        plt.scatter(xs, ys)
+        plt.errorbar(xs, ys, yerr=ysigma, xerr=xsigma, fmt=None)
+        plt.plot(xs, xs, 'k--')
+        plt.axis([min(xs)-1, max(xs)+1, min(ys)-1, max(ys)+1])
+        plt.grid(True, linewidth=1)
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title('Sample data')
+        plt.show()
+
+    plt.figure()
     plt.errorbar(xs, ys, yerr=ysigma, xerr=xsigma, fmt='k.')
     plt.plot(xs, fitm*xs + fitb, 'b-')
     lines = samples[np.random.random_integers(0, len(samples) - 1, 50), :2]
@@ -184,3 +199,7 @@ if __name__ == "__main__":
                            truths=[1., 0.],
                            quantiles=[0.159, 0.5, 0.841])  # 1-sigma quantiles
     fig2.show()
+    mqs = triangle.quantile(samples[:, 0], [0.159, 0.5, 0.841])  # 1-sigma
+    print "m = %.2f +%.2f/-%.2f" % (mqs[1], mqs[2] - mqs[1], mqs[1] - mqs[0])
+    bqs = triangle.quantile(samples[:, 1], [0.159, 0.5, 0.841])  # 1-sigma
+    print "b = %.2f +%.2f/-%.2f" % (bqs[1], bqs[2] - bqs[1], bqs[1] - bqs[0])
