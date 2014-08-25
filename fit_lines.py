@@ -137,10 +137,16 @@ def output_fig(name, save_figs, base_path="images", **kwargs):
 if __name__ == "__main__":
     import time
 
-    save_figs = True #  whether to show figures interactively or save to file
+    save_figs = True  # whether to show figures interactively or save to file
+    save_data = True  # whether to save data to file
     np.random.seed(42)  # reproducibility
     (xsigma, ysigma) = (0.1, 1.2)  # true values
     xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma)
+    if save_data:
+        import csv
+        with open('fit-data.csv', 'wb') as csvfile:
+            datawriter = csv.writer(csvfile, delimiter=',')
+            datawriter.writerows(zip(xs, ys))
     (fitm, fitb) = lstsqfit(xs, ys)
 
     print "Data"

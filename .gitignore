@@ -18,5 +18,6 @@ Jaxo_tmp.tex
 # Ignore LaTeX auxiliary files
 *.aux
 *.synctex.gz
-# Ignore auto-generated images (from fitting plots)
+# Ignore auto-generated files (from fit_lines.py)
 images/fit-*.png
+fit-data.csv
