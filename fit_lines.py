@@ -124,12 +124,15 @@ def lnprob(theta, xs, ys):
 
 def output_fig(name, save_figs, base_path="images", **kwargs):
     if save_figs:
-        import os.path
+        import os
         fname = os.path.realpath(os.path.join(base_path, name))
+        dname = os.path.dirname(fname)
+        if not (os.path.exists(dname) and os.path.isdir(dname)):
+            os.mkdir(dname)
         try:
             plt.savefig(fname, **kwargs)
         except:
-            raise RuntimeError, "Could not save image %s".format(fname)
+            raise RuntimeError, "Could not save image {0}".format(fname)
     else:
         plt.show()
 
