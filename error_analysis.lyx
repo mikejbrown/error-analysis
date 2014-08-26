@@ -946,18 +946,14 @@ key "PHAs"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Note Note
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Float 
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
 \begin_inset Graphics
-	filename images/earth_impact_risk.eps
+	filename images/earth_impact_risk.png
 	width 90col%
 
 \end_inset
@@ -979,11 +975,6 @@ Illustration of projected Earth impact by an asteroid (red star) with a
  The updated prediction is still within the old uncertainty region, but
  the new uncertainty region no longer contains the Earth and the impact
  hazard disappears.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
