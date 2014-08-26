@@ -1,0 +1,13 @@
+.lyx|lyx|lyxjinja|jinja|latex:
+    - .eps:
+        - output: True
+    - images/*.png:
+        - output: True
+    - .py|py:
+        - py: {
+            add-new-files: True,
+            mkdir: images,
+            keep-originals: True,
+            additional-doc-filters: {.csv: lines}
+          }
+
