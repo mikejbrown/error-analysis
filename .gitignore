@@ -18,4 +18,23 @@ Jaxo_tmp.tex
 # Ignore LaTeX auxiliary files
 *.aux
 *.synctex.gz
+# Ignore auto-generated files (from fit_lines.py)
+images/fit-*.png
+fit-data.csv
+# Dexy related ignores
+# Copied from https://github.com/ananelson/dexy-templates/blob/master/.gitignore
+artifacts/
+.cache/
+.dexy/
+dist/
+build/
+logs/
+output/
+output-long/
+output-site/
+output-latest.tgz
+*.pyc
+memory.log
+*.egg-info
+build/
 

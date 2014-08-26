@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -23,13 +23,13 @@ customHeadersFooters
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 1
@@ -50,15 +50,24 @@ customHeadersFooters
 \pdf_pdfusetitle true
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Index
 \shortcut idx
@@ -82,7 +91,7 @@ customHeadersFooters
 \begin_body
 
 \begin_layout Left Header
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -120,7 +129,7 @@ leftmark
 \end_layout
 
 \begin_layout Center Header
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -133,7 +142,7 @@ status open
 \end_layout
 
 \begin_layout Right Header
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -171,7 +180,7 @@ rightmark
 \end_layout
 
 \begin_layout Left Footer
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -196,11 +205,23 @@ thepage
 \end_layout
 
 \begin_layout Center Footer
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-© 2014 Michael J.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+copyright
+\end_layout
+
+\end_inset
+
+ 2014 Michael J.
  Brown 
 \begin_inset Graphics
 	filename cc-by-sa.eps
@@ -213,7 +234,20 @@ status open
 
 \end_inset
 
-© 2014 Michael J.
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+copyright
+\end_layout
+
+\end_inset
+
+ 2014 Michael J.
  Brown 
 \begin_inset Graphics
 	filename cc-by-sa.eps
@@ -225,7 +259,7 @@ status open
 \end_layout
 
 \begin_layout Right Footer
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -472,7 +506,20 @@ We all know that there are good and bad experiments.
 \end_layout
 
 \begin_layout Quotation
-- Henri Poincaré (1904, p.
+- Henri Poincar
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ (1904, p.
  141)
 \begin_inset Note Note
 status open
@@ -852,7 +899,7 @@ reference "fig:earth-impact"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -868,7 +915,7 @@ status collapsed
 \end_inset
 
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -902,17 +949,17 @@ key "PHAs"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename images/earth_impact_risk.eps
+	filename images/earth_impact_risk.png
 	width 90col%
 
 \end_inset
 
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -941,7 +988,7 @@ Illustration of projected Earth impact by an asteroid (red star) with a
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
@@ -1018,7 +1065,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1351,7 +1398,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2609,7 +2656,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2644,238 +2691,158 @@ Sample data for linear fitting discussion.
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="11" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
+
+\lang australian
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $x$
+
+
+\backslash
+begin{tabular}{|c|c|}
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
+\begin_layout Plain Layout
+
+\lang australian
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $y$
+
+
+\backslash
+hline x & y 
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Plain Layout
+
+\lang australian
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
--0.05
+
+<% for row in d['fit-data.csv|lines']: -%>
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
+
+
+\end_layout
 
 \begin_layout Plain Layout
-0.6
+
+\lang australian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+     <% set n = row['name'] -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+     <% set x = row['contents'].split(',')[0]|float -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+     <% set y = row['contents'].split(',')[1]|float -%>
 \end_layout
 
 \end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+
+
+\end_layout
 
 \begin_layout Plain Layout
-1.06
+
+\lang australian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline << "% 4.2f"|format(x) >> & << "% 5.1f"|format(y) >> 
+\backslash
+tabularnewline
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
+
+
+\end_layout
 
 \begin_layout Plain Layout
-0.9
+
+\lang australian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<% endfor %>
 \end_layout
 
 \end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+
+
+\end_layout
 
 \begin_layout Plain Layout
-2.25
+
+\lang australian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-3.0
+
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Plain Layout
+
+\lang australian
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
-3.14
+
+
+\backslash
+end{tabular}
 \end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5.2
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.27
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.2
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5.50
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5.3
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.57
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8.6
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7.81
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8.7
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8.80
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8.3
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9.86
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10.7
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
@@ -3140,7 +3107,7 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label

@@ -122,13 +122,34 @@ def lnprob(theta, xs, ys):
     return lnlike(theta, xs, ys) + lp
 
 
+def output_fig(name, save_figs, base_path="images", **kwargs):
+    if save_figs:
+        import os
+        fname = os.path.realpath(os.path.join(base_path, name))
+        dname = os.path.dirname(fname)
+        if not (os.path.exists(dname) and os.path.isdir(dname)):
+            os.mkdir(dname)
+        try:
+            plt.savefig(fname, **kwargs)
+        except:
+            raise RuntimeError, "Could not save image {0}".format(fname)
+    else:
+        plt.show()
+
 #%% Main program - (spyder cell magic)
 if __name__ == "__main__":
     import time
 
+    save_figs = True  # whether to show figures interactively or save to file
+    save_data = True  # whether to save data to file
     np.random.seed(42)  # reproducibility
     (xsigma, ysigma) = (0.1, 1.2)  # true values
     xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma)
+    if save_data:
+        import csv
+        with open('fit-data.csv', 'wb') as csvfile:
+            datawriter = csv.writer(csvfile, delimiter=',')
+            datawriter.writerows(zip(xs, ys))
     (fitm, fitb) = lstsqfit(xs, ys)
 
     print "Data"
@@ -173,7 +194,7 @@ if __name__ == "__main__":
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title('Sample data')
-        plt.show()
+        output_fig("fit-data-plot.png", save_figs, dpi=72)
 
     plt.figure()
     plt.errorbar(xs, ys, yerr=ysigma, xerr=xsigma, fmt='k.')
@@ -186,19 +207,21 @@ if __name__ == "__main__":
     (mmax, bmax) = samples[samples[:, 0] == np.max(samples[:, 0])][0, :2]
     plt.plot(xs, mmin * xs + bmin, 'g:', xs, mmax * xs + bmax, 'g:')
     plt.plot(xs, 1.0 * xs + 0., 'r-')
-    plt.show()
+    output_fig("fit-sample-lines.png", save_figs, dpi=72)
 
     import triangle
     fig = triangle.corner(samples[:, :4],
                           labels=["m", "b", "$\sigma_x$", "$\sigma_y$"],
                           truths=[1., 0., xsigma, ysigma],
                           quantiles=[0.159, 0.5, 0.841])  # 1-sigma quantiles
-    fig.show()
+    output_fig("fit-data-triangle-all-vars.png", save_figs, dpi=72)
+
     fig2 = triangle.corner(samples[:, :2],
                            labels=["m", "b"],
                            truths=[1., 0.],
                            quantiles=[0.159, 0.5, 0.841])  # 1-sigma quantiles
-    fig2.show()
+    output_fig("fit-data-triangle-m-b-vars.png", save_figs, dpi=72)
+
     mqs = triangle.quantile(samples[:, 0], [0.159, 0.5, 0.841])  # 1-sigma
     print "m = %.2f +%.2f/-%.2f" % (mqs[1], mqs[2] - mqs[1], mqs[1] - mqs[0])
     bqs = triangle.quantile(samples[:, 1], [0.159, 0.5, 0.841])  # 1-sigma
