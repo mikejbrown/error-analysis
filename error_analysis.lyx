@@ -2647,13 +2647,21 @@ blinded
 
 ) so that any features in the real data would not bias the methods used,
  and so cast doubt on the results.
+ In any case you would plot this data as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fit-data-plot"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2842,6 +2850,45 @@ status open
 
 \backslash
 end{tabular}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/fit-data-plot.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fit-data-plot"
+
+\end_inset
+
+Sample data
 \end_layout
 
 \end_inset
