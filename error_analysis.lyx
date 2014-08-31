@@ -2658,10 +2658,39 @@ reference "fig:fit-data-plot"
 \end_layout
 
 \begin_layout Standard
+So like any plot you make, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fit-data-plot"
+
+\end_inset
+
+ has a title above and a descriptive caption below.
+ The axes are labelled and (if the quantities 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ had units this is where they would go).
+ Each data point is plotted with a point at the central value and error
+ bars in the horizontal and vertical directions representing 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta y$
+\end_inset
+
+ respectively.
+\end_layout
+
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2888,7 +2917,7 @@ name "fig:fit-data-plot"
 
 \end_inset
 
-Sample data
+Sample data for illustrating visual error estimation in linear fits.
 \end_layout
 
 \end_inset
