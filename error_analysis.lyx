@@ -2999,6 +2999,15 @@ name "fig:fit-data-plot"
 \end_inset
 
 Sample data for illustrating visual error estimation in linear fits.
+ The black dashed line is the 
+\begin_inset Quotes eld
+\end_inset
+
+true
+\begin_inset Quotes erd
+\end_inset
+
+ line that was used to generate the data.
 \end_layout
 
 \end_inset
