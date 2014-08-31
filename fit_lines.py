@@ -148,10 +148,13 @@ if __name__ == "__main__":
     seed = 42
     np.random.seed(seed)  # reproducibility
     (xsigma, ysigma) = (0.1, 1.2)  # true values
-    xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma)
+    (mtrue, btrue) = (1.0, 0.0)  # true values
+    xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma, m=mtrue, b=btrue)
     output['randomseed'] = seed
     output['xs'] = list(xs)
     output['ys'] = list(ys)
+    output['mtrue'] = mtrue
+    output['btrue'] = btrue
     output['xsigma'] = xsigma
     output['ysigma'] = ysigma
     if save_data:
