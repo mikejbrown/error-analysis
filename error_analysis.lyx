@@ -2459,6 +2459,55 @@ name "sub:Estimating-Errors-From-Measurements"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\begin_layout Itemize
+Reading an analog scale
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linear
+\end_layout
+
+\begin_layout Itemize
+Log
+\end_layout
+
+\begin_layout Itemize
+Vernier
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Reading a digital scale
+\end_layout
+
+\begin_layout Itemize
+Count data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Estimating Errors From Fits by Eye
 \begin_inset CommandInset label
@@ -2687,6 +2736,38 @@ reference "fig:fit-data-plot"
  respectively.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\begin_layout Itemize
+Plot with uncertainty lines
+\end_layout
+
+\begin_layout Itemize
+Calculating slope values & uncertainties
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
@@ -3975,6 +4056,73 @@ Advanced Topics
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Advanced-Topics"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\begin_layout Itemize
+Probability theory
+\end_layout
+
+\begin_layout Itemize
+Bayesian statistics
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bayes theorem
+\end_layout
+
+\begin_layout Itemize
+Likelihood and evidence
+\end_layout
+
+\begin_layout Itemize
+Priors
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Frequentist statistics
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Repeated measurements, sampling distributions, central limit theorem
+\end_layout
+
+\begin_layout Itemize
+Parameter estimation
+\end_layout
+
+\begin_layout Itemize
+Confidence intervals and p-values
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Non-linear propagation and Monte Carlo
+\end_layout
 
 \end_inset
 
