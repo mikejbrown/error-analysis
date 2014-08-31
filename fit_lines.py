@@ -142,7 +142,6 @@ if __name__ == "__main__":
     import json
 
     save_figs = True  # whether to show figures interactively or save to file
-    save_data = True  # whether to save data to file
     output = {}  # JSON dictionary for final output to dexy
 
     seed = 42
@@ -157,11 +156,7 @@ if __name__ == "__main__":
     output['btrue'] = btrue
     output['xsigma'] = xsigma
     output['ysigma'] = ysigma
-    if save_data:
-        import csv
-        with open('fit-data.csv', 'wb') as csvfile:
-            datawriter = csv.writer(csvfile, delimiter=',')
-            datawriter.writerows(zip(xs, ys))
+
     (fitm, fitb) = lstsqfit(xs, ys)
     output['lsqm'] = fitm
     output['lsqb'] = fitb
