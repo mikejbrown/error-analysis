@@ -139,26 +139,27 @@ def output_fig(name, save_figs, base_path="images", **kwargs):
 #%% Main program - (spyder cell magic)
 if __name__ == "__main__":
     import time
+    import json
 
     save_figs = True  # whether to show figures interactively or save to file
-    save_data = True  # whether to save data to file
-    np.random.seed(42)  # reproducibility
-    (xsigma, ysigma) = (0.1, 1.2)  # true values
-    xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma)
-    if save_data:
-        import csv
-        with open('fit-data.csv', 'wb') as csvfile:
-            datawriter = csv.writer(csvfile, delimiter=',')
-            datawriter.writerows(zip(xs, ys))
-    (fitm, fitb) = lstsqfit(xs, ys)
+    output = {}  # JSON dictionary for final output to dexy
 
-    print "Data"
-    print "    x\t    y"
-    print "-------------"
-    for i in xrange(len(xs)):
-        print "% 4.2f\t% 5.1f" % (xs[i], ys[i])
-    print
-    print "Least squares fit: m=%f b=%f" % (fitm, fitb)
+    seed = 42
+    np.random.seed(seed)  # reproducibility
+    (xsigma, ysigma) = (0.1, 1.2)  # true values
+    (mtrue, btrue) = (1.0, 0.0)  # true values
+    xs, ys = gendata(n=20, xsigma=xsigma, ysigma=ysigma, m=mtrue, b=btrue)
+    output['randomseed'] = seed
+    output['xs'] = list(xs)
+    output['ys'] = list(ys)
+    output['mtrue'] = mtrue
+    output['btrue'] = btrue
+    output['xsigma'] = xsigma
+    output['ysigma'] = ysigma
+
+    (fitm, fitb) = lstsqfit(xs, ys)
+    output['lsqm'] = fitm
+    output['lsqb'] = fitb
 
     # initial guess for MCMC parameters
     # [m, b, xsigma, ysigma]
@@ -169,19 +170,23 @@ if __name__ == "__main__":
     nwalkers = 3 * ndim
     burnin = 200
     nsteps = 20000
+    output['nwalkers'] = nwalkers
+    output['burnin'] = burnin
+    output['nsteps'] = nsteps
     # starting points for walkers in a small ball around our initial guess
     pos = [t + 1e-4 * np.random.randn(ndim) for i in range(nwalkers)]
 
     # MCMC sampler
-    print "Running MCMC chain with %d walkers and %d steps with %d burnin." % \
-        (nwalkers, nsteps, burnin)
+#    print "Running MCMC chain with %d walkers and %d steps with %d burnin." % \
+#        (nwalkers, nsteps, burnin)
     start = time.clock()
     sampler = mc.EnsembleSampler(nwalkers, ndim, lnprob, args=(xs, ys))
     sampler.run_mcmc(pos, nsteps)
     # remove burn-in samples and flatten chain
     samples = sampler.chain[:, burnin:, :].reshape((-1, ndim))
     stop = time.clock()
-    print "Finished. Took %f seconds." % (stop - start)
+#    print "Finished. Took %f seconds." % (stop - start)
+    print json.dumps(output)
 
 #%% Plotting - (spyder cell magic)
     with plt.xkcd(scale=0.5):
@@ -213,16 +218,16 @@ if __name__ == "__main__":
     fig = triangle.corner(samples[:, :4],
                           labels=["m", "b", "$\sigma_x$", "$\sigma_y$"],
                           truths=[1., 0., xsigma, ysigma],
-                          quantiles=[0.159, 0.5, 0.841])  # 1-sigma quantiles
+                          quantiles=[0.159, 0.5, 0.841],  # 1-sigma quantiles
+                          verbose=False)
     output_fig("fit-data-triangle-all-vars.png", save_figs, dpi=72)
 
     fig2 = triangle.corner(samples[:, :2],
                            labels=["m", "b"],
                            truths=[1., 0.],
-                           quantiles=[0.159, 0.5, 0.841])  # 1-sigma quantiles
+                           quantiles=[0.159, 0.5, 0.841],  # 1-sigma quantiles
+                           verbose=False)
     output_fig("fit-data-triangle-m-b-vars.png", save_figs, dpi=72)
 
     mqs = triangle.quantile(samples[:, 0], [0.159, 0.5, 0.841])  # 1-sigma
-    print "m = %.2f +%.2f/-%.2f" % (mqs[1], mqs[2] - mqs[1], mqs[1] - mqs[0])
     bqs = triangle.quantile(samples[:, 1], [0.159, 0.5, 0.841])  # 1-sigma
-    print "b = %.2f +%.2f/-%.2f" % (bqs[1], bqs[2] - bqs[1], bqs[1] - bqs[0])

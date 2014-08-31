@@ -8,6 +8,5 @@
             add-new-files: True,
             mkdir: images,
             keep-originals: True,
-            additional-doc-filters: {.csv: lines}
           }
 

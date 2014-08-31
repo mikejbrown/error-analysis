@@ -2520,6 +2520,45 @@ name "sub:Estimating-Errors-From-Fits-by-Eye"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<% set xs = d['fit_lines.py|py'].from_json().xs -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+<% set ys = d['fit_lines.py|py'].from_json().ys -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+<% set mtrue = d['fit_lines.py|py'].from_json().mtrue -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+<% set btrue = d['fit_lines.py|py'].from_json().btrue -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+<% set xsigma = d['fit_lines.py|py'].from_json().xsigma -%>
+\end_layout
+
+\begin_layout Plain Layout
+
+<% set ysigma = d['fit_lines.py|py'].from_json().ysigma -%>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Often you want to estimate the slope and/or intercept of a linear relationship
  between two variables.
  We will only consider linear relationships in this section.
@@ -2653,19 +2692,51 @@ data
 \end_inset
 
  was randomly generated with 
-\begin_inset Formula $m=1$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ m = << mtrue >> $
+\end_layout
+
 \end_inset
 
  and 
-\begin_inset Formula $b=0$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ b = << btrue >> $
+\end_layout
+
 \end_inset
 
  and added in noise with 
-\begin_inset Formula $\Delta x=0.10$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ 
+\backslash
+Delta x = << xsigma >> $
+\end_layout
+
 \end_inset
 
  and 
-\begin_inset Formula $\Delta y=1.0$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ 
+\backslash
+Delta y = << ysigma >> $
+\end_layout
+
 \end_inset
 
 .
@@ -2785,15 +2856,40 @@ name "tab:sample-data-for-linear-fitting"
 
 Sample data for linear fitting discussion.
  Generated from 
-\begin_inset Formula $y=x$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ y = << mtrue >> x + << btrue >> $
+\end_layout
+
 \end_inset
 
  with added Gaussian noise with 
-\begin_inset Formula $\Delta x=0.10$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ 
+\backslash
+Delta x = << xsigma >> $
+\end_layout
+
 \end_inset
 
  and 
-\begin_inset Formula $\Delta y=1.0$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ 
+\backslash
+Delta y = << ysigma >> $
+\end_layout
+
 \end_inset
 
  (
@@ -2861,7 +2957,7 @@ status open
 
 \begin_layout Plain Layout
 
-<% for row in d['fit-data.csv|lines']: -%>
+<% for x in xs: -%>
 \end_layout
 
 \end_inset
@@ -2877,17 +2973,7 @@ status open
 
 \begin_layout Plain Layout
 
-     <% set n = row['name'] -%>
-\end_layout
-
-\begin_layout Plain Layout
-
-     <% set x = row['contents'].split(',')[0]|float -%>
-\end_layout
-
-\begin_layout Plain Layout
-
-     <% set y = row['contents'].split(',')[1]|float -%>
+     <% set y = ys[loop.index0] -%>
 \end_layout
 
 \end_inset
