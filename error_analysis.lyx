@@ -460,7 +460,8 @@ official
  version is maintained in a public Git repository at 
 \begin_inset CommandInset href
 LatexCommand href
-name "URL stub"
+name "Github"
+target "https://github.com/mikejbrown/error-analysis"
 
 \end_inset
 
