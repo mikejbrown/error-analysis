@@ -466,7 +466,14 @@ target "https://github.com/mikejbrown/error-analysis"
 \end_inset
 
 .
- Please feel free to contribute by sending a pull request!
+ Please feel free to contribute by sending a pull request! This current
+ version was built from commit 
+\begin_inset Info
+type  "buffer"
+arg   "vcs-revision"
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
