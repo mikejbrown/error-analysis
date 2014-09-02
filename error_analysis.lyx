@@ -466,7 +466,19 @@ target "https://github.com/mikejbrown/error-analysis"
 \end_inset
 
 .
- Please feel free to contribute by sending a pull request!
+ Please feel free to contribute by sending a pull request! This current
+ version was built from commit 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<< d['commit-id.sh|bash'] >>
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
