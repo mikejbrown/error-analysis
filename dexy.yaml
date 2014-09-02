@@ -9,4 +9,6 @@
             mkdir: images,
             keep-originals: True,
           }
+    - commit-id.sh|bash:
+        - bash: { 'use-wd': True }
 

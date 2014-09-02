@@ -468,9 +468,14 @@ target "https://github.com/mikejbrown/error-analysis"
 .
  Please feel free to contribute by sending a pull request! This current
  version was built from commit 
-\begin_inset Info
-type  "buffer"
-arg   "vcs-revision"
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<< d['commit-id.sh|bash'] >>
+\end_layout
+
 \end_inset
 
 .
